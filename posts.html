@@ -2,57 +2,186 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="style.css">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/animate.css">
+  <link rel="stylesheet" href="style.css">
+  <title>Title</title>
 </head>
 
 <body>
-    <section class=" d-flex align-items-center p-3 px-md-4 mb-3 bg-dark border-bottom shadow-sm">
-        <a class="my-0 mr-md-auto font-weight-normal"><img class="img-fluid img-ozil" src="img/PicsArt_04-28-03.45.22.png" alt=""> </a>
-        <nav class="my-2 my-md-0 mr-md-3">
-            <a class=" btn  btn-outline-danger p-2 " href="file:///G:/crud/crud/my%20crud/index.html">Home</a>
-        </nav>
-        <a class="btn btn-outline-light" href="#">Sign in</a>
-    </section>
-    
-  
-    <div class="modal fade"  id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            ...
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button id="confirm" type="button" class="btn btn-primary">Save changes</button>
-          </div>
+  <!-- NavBar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+    <a class="navbar-brand" href="#"><img class="img-fluid img-ozil" src="img/PicsArt_04-28-03.45.22.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon "></span>
+    </button>
+    <div class="collapse navbar-collapse  " id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class=" btn  btn-outline-danger p-2  " href="file:///G:/crud/crud/my%20crud/index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a id="signIn" class="btn btn-outline-light p-2 ml-2" href="#" data-toggle="modal"
+            data-target="#exampleModalLong">Sign in</a>
+          <!-- Modal For Sign in -->
+          <div class="modal fade animate__animated animate__zoomIn  " id="exampleModalLong" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog d-flex align-items-center" role="document">
+              <div class="modal-content">
+                <div class="modal-header bg-info">
+                  <h5 class="modal-title " id="exampleModalLongTitle">Sign in</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+                    <button type="submit" class="btn btn-info">Sign in</button> <span>or</span>
+                    <a id="donSignUp" class="text-info" data-toggle="modal" data-target="#exampleModal" href=""> Don't
+                      Have Account </a>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Modal For Sign in -->
+
+          <!-- Modal For Sign up -->
+          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle"
+            aria-hidden="true">
+            <div class="modal-dialog d-flex align-items-center" role="document">
+              <div class="modal-content">
+                <div class="modal-header bg-info">
+                  <h5 class="modal-title " id="exampleModalTitle">Sign in</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group">
+                      <label for="exampleInputEmail1">Email address</label>
+                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputPassword1">Password</label>
+                      <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+
+                    <button type="submit" class="btn btn-info">Sign up</button>
+
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div><!-- End Modal For Sign up -->
+        </li>
+      </ul>
+    </div>
+  </nav> <!-- End NavBar -->
+
+
+
+  <!-- Modal For Delete Btns and Edit Modal  -->
+
+  <!--  Delete Modal Btn  -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          you sure you want delete
+        </div>
+        <div class="modal-footer m-auto">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button id="confirm" type="button" class="btn btn-danger">yes</button>
         </div>
       </div>
     </div>
+  </div><!-- End   Delete Modal Btn  -->
 
-    <section class="container-fluid">
-        <div class="postManage">
-            <div id="postMan" class="row">
-                                             
-            </div>
+  <!--  Edit Modal Btn  -->
+  <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Understood</button>
+        </div>
+      </div>
+    </div>
+  </div> <!-- End Edit Modal Btn  -->
+
+  <!-- End  Modal For Delete Btns and Edit Modal -->
+
+  <section class="container-fluid">
+    <section class="slider">
+
     </section>
 
-    <script src="js/jquery-3.5.1.min.js"></script>    
-    <script src="js/popper.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="postsManage.js"></script>
+    <div class="row">
+      <div class="col-lg-2"></div>
+      <div class="col-lg-10">
+      <section class="create-post">
+
+        <div class="media col-sm-8 m-auto d-flex">
+          <a class="mediaImg" href="#">
+            <i class="fas fa-user-alt"></i>
+          </a>
+          <div class="media-body">
+            <a href="">
+              <h5>Person</h5>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+
+
+      <div class="postManage">
+        <div id="postMan" class="row">
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+  </section>
+
+  <script src="js/jquery-3.5.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="postsManage.js"></script>
 </body>
-                         
+
 </html>

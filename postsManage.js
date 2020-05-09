@@ -2,18 +2,26 @@
 $(window).on('load', function(){ 
 
 let postman = document.getElementById('postMan');
+let donHave = document.getElementById('donSignUp');
+
+donHave.addEventListener('click', ()=>{
+    $('#exampleModalLong').modal('hide');
+})
+
+
+
 let postManage = [];
 
 postManage = JSON.parse(localStorage.getItem('postsData'));
 
-postman.addEventListener('click', editbtns);
+postman.addEventListener('click', editbtnsAndDell);
 AddPosts();
 
 function AddPosts() {
     let temp = '';
-    for (let i = 0; i< postManage.length; i++) {
+    for (let i = 1; i< postManage.length; i++) {
 
-        temp += `<div class=" col-lg-3 col-md-6 col-sm-12">
+        temp += `<div class=" col-sm-8 m-auto">
                 <div class="api p-3 mt-3"><h4>${postManage[i].title}</h4>
                 <p>${postManage[i].body}</p>
                 </div>
@@ -28,7 +36,7 @@ function AddPosts() {
 }
 
 
-function editbtns (e) {
+function editbtnsAndDell (e) {
 
     let postId;
     let postIndex;
@@ -47,32 +55,38 @@ function editbtns (e) {
                     AddPosts();
                     $('#exampleModalCenter').modal('hide');
 
-                    let delRequest = new Promise ((resolve,reject) => {
-                        let request = new XMLHttpRequest;
-                        request.open('DELETE', `https://jsonplaceholder.typicode.com/posts/${postId}`);
-                        request.send();
-                        request.onload = () => {
-                            if (request.status === 200) {
-                                resolve(Response);
-                                console.log(request.response);
-                            }
-                            else if (request.status === 404){
-                                let error = 'No posts DELETED'
-                                reject(error);
-                            }
-                        }
-                    });
+                      fetch('https://jsonplaceholder.typicode.com/posts/' + postId, {
+                        method: 'DELETE',
+                        })
+                        .then(res => res.json())
+                        .then(res => console.log(res))
+                        .catch(error => console.log(error))
+
+                    // let delRequest = new Promise ((resolve,reject) => {
+                    //     let request = new XMLHttpRequest;
+                    //     request.open('DELETE', `https://jsonplaceholder.typicode.com/posts/${postId}`);
+                    //     request.send();
+                    //     request.onload = () => {
+                    //         if (request.status === 200) {
+                    //             resolve(Response);
+                    //             console.log(request.response);
+                    //         }
+                    //         else if (request.status === 404){
+                    //             let error = 'No posts DELETED'
+                    //             reject(error);
+                    //         }
+                    //     }
+                    // });
     
-                    delRequest.then((message) => {
-                        console.log(message);
-                    }, (error) => {
-                        console.log(error);
-                    });
+                    // delRequest.then((message) => {
+                    //     console.log(message);
+                    // }, (error) => {
+                    //     console.log(error);
+                    // });
                 });
             }
             else if (e.target.classList.contains('editbtn')) {
-                postId = e.target.getAttribute('data_id');
-                window.location.href = './edit_post.html?'+postId
+                $('#staticBackdrop').modal('show');
 
             }
    
