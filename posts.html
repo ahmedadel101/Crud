@@ -31,15 +31,16 @@
           <!-- Modal For Sign in -->
           <div class="modal fade animate__animated animate__zoomIn  " id="exampleModalLong" tabindex="-1" role="dialog"
             aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-            <div class="modal-dialog d-flex align-items-center" role="document">
+            
+            <div class="modal-dialog mod " role="document">
               <div class="modal-content">
-                <div class="modal-header bg-info">
+                <div class="modal-header bg-warning">
                   <h5 class="modal-title " id="exampleModalLongTitle">Sign in</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-dark text-warning">
                   <form>
                     <div class="form-group">
                       <label for="exampleInputEmail1">Email address</label>
@@ -50,39 +51,100 @@
                       <input type="password" class="form-control" id="exampleInputPassword1">
                     </div>
 
-                    <button type="submit" class="btn btn-info">Sign in</button> <span>or</span>
-                    <a id="donSignUp" class="text-info" data-toggle="modal" data-target="#exampleModal" href=""> Don't
+                    <button type="submit" class="btn btn-warning">Sign in</button> <span>or</span>
+                    <a id="donSignUp" class=" btn btn-outline-warning" data-toggle="modal" data-target="#exampleModal" href=""> Don't
                       Have Account </a>
                   </form>
                 </div>
               </div>
             </div>
+          
           </div><!-- End Modal For Sign in -->
 
           <!-- Modal For Sign up -->
-          <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle"
+          <div class="modal fade animate__animated animate__zoomIn" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalTitle"
             aria-hidden="true">
-            <div class="modal-dialog d-flex align-items-center" role="document">
+            <div class="modal-dialog mod" role="document">
               <div class="modal-content">
-                <div class="modal-header bg-info">
-                  <h5 class="modal-title " id="exampleModalTitle">Sign in</h5>
+                <div class="modal-header bg-warning">
+                  <h5 class="modal-title " id="exampleModalTitle">Sign up</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body bg-dark">
                   <form>
-                    <div class="form-group">
-                      <label for="exampleInputEmail1">Email address</label>
-                      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-                    </div>
-                    <div class="form-group">
-                      <label for="exampleInputPassword1">Password</label>
-                      <input type="password" class="form-control" id="exampleInputPassword1">
-                    </div>
+                    
+                    <div class="form-group row">
 
-                    <button type="submit" class="btn btn-info">Sign up</button>
+                      <div class="col-sm-12 d-flex justify-content-center">
 
+                        <label class="main-img d-flex flex-column" for="img">
+                          <div class="loadImg">
+                            <h5 >Upload</h5>
+                          </div>
+                            <div class="iconLoad m-auto">
+                              <i  class="fas fa-user-alt text-warning  img-signup"></i>
+                            </div>
+                            </label>
+                        <input type="file" 
+                        class="form-control-file d-none" 
+                        id="img">
+                      </div><!-- End Name Input -->
+
+                      <!-- Start Name Input -->
+                      <div class="col-sm-12 m-auto">
+                        <input type="text" 
+                        class="form-control" 
+                        id="Name" 
+                        placeholder="Your Name"
+                        aria-describedby="Name">
+                      </div><!-- End Name Input -->
+                     
+                      <!-- Start Email Input -->
+                      <div class="col-sm-12">
+                        <input type="email" 
+                        class="form-control mt-2" 
+                        id="email" 
+                        placeholder="Your Email"
+                        aria-describedby="email">
+                      </div><!-- End Name Input -->
+
+                      <!-- Start Password Input -->
+                      <div class="col-sm-12">
+                        <input type="password"                      
+                      class="form-control mt-2" 
+                      placeholder="Password"
+                      id="pass">
+                      </div><!-- End Password Input -->
+
+                      <!-- Start Phone Input -->
+                      <div class="col-sm-12">
+                        <input type="tel"                      
+                      class="form-control mt-2" 
+                      placeholder="Phone"
+                      id="phone">
+                      </div><!-- End Phone Input -->
+
+                      <!-- Start Number Age Input -->
+                      <div class="col-md-6 col-sm-6">
+                        <input type="number"                      
+                      class="form-control mt-2" 
+                      placeholder="Age"
+                      id="Age">
+                      </div><!-- End Age Input -->
+
+                      <!-- Start Select Your Country Input -->
+                      <div class="col-md-6 col-sm-6 ">
+                       <select class="form-control mt-2" name="Count" id="count">
+                         <option value=""> Select Country</option>
+                         <option value=""> Egypt </option>
+                         <option value=""> Germany </option>
+                         <option value=""> Italy </option>
+                       </select>
+                      </div><!-- End Select Your Country Input -->
+                    </div>
+                    <button type="submit" class="btn btn-warning">Sign up</button>
                   </form>
                 </div>
               </div>
@@ -122,7 +184,8 @@
   <!--  Edit Modal Btn  -->
   <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    
+    <div class="modal-dialog mod" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
@@ -139,6 +202,7 @@
         </div>
       </div>
     </div>
+  
   </div> <!-- End Edit Modal Btn  -->
 
   <!-- End  Modal For Delete Btns and Edit Modal -->
@@ -156,12 +220,12 @@
         <div class="media col-sm-8 m-auto d-flex">
           <a class="mediaImg" href="#">
             <i class="fas fa-user-alt"></i>
-          </a>
-          <div class="media-body">
             <a href="">
               <h5>Person</h5>
             </a>
-
+          </a>
+          <div class="media-body">
+           
           </div>
         </div>
       </section>

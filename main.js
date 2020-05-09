@@ -5,7 +5,7 @@ var getposts = new Promise(function(resolved, rejected) {
     var request = new XMLHttpRequest();
 
     /* get Api */
-    request.open('get', 'https://jsonplaceholder.typicode.com/posts');
+    request.open('get', 'http://localhost:3000/xlarge/post/list');
 
     request.send();
 
@@ -38,7 +38,7 @@ function posts() {
     var temp = '';
     for (var i = 0; i < postsData.length; i++) {
 
-        temp += '<div class=" col-lg-3 col-md-6 col-sm-12"> <div class="api p-3 mt-3"><h4>' + postsData[i].title + '</h4><p> ' + postsData[i].body + ' </p></div></div></div>';
+        temp += '<div class=" col-lg-3 col-md-6 col-sm-12"> <div class="api p-3 mt-3"><h4>' + postsData[i].title + '</h4><p> ' + postsData[i].content + ' </p></div></div></div>';
 
     }
     console.log(postsData);

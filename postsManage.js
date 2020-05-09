@@ -23,7 +23,7 @@ function AddPosts() {
 
         temp += `<div class=" col-sm-8 m-auto">
                 <div class="api p-3 mt-3"><h4>${postManage[i].title}</h4>
-                <p>${postManage[i].body}</p>
+                <p>${postManage[i].content}</p>
                 </div>
                 <div class=" d-flex mt-2 justify-content-center align-items-end">
                 <a  data_index="${i}" data_id="${postManage[i].id}" class="editbtn btn text-danger mr-3 btn-warning " >Edit</a>
@@ -55,7 +55,7 @@ function editbtnsAndDell (e) {
                     AddPosts();
                     $('#exampleModalCenter').modal('hide');
 
-                      fetch('https://jsonplaceholder.typicode.com/posts/' + postId, {
+                      fetch('http://localhost:3000/xlarge/post/list' + postId, {
                         method: 'DELETE',
                         })
                         .then(res => res.json())
