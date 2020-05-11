@@ -164,16 +164,16 @@
     aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
-        <div class="modal-header">
+        <div class="modal-header bg-dark text-warning">
           <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body bg-dark text-warning">
           you sure you want delete
         </div>
-        <div class="modal-footer m-auto">
+        <div class="modal-footer bg-dark ">
           <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
           <button id="confirm" type="button" class="btn btn-danger">yes</button>
         </div>
@@ -186,19 +186,46 @@
     aria-labelledby="staticBackdropLabel" aria-hidden="true">
     
     <div class="modal-dialog mod" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Modal title</h5>
+      <div class="modal-content ">
+        <div class="modal-header bg-warning">
+          <h5 class="modal-title" id="staticBackdropLabel">Edit Post</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          ...
+        <div class="modal-body bg-dark">
+          <!-- Start  Edit Form -->
+          <form action="">
+            <div class="form-group row">
+              <!-- Start  Title Input will Recevie Text From Post  -->
+              <div class=" col-sm-12">
+                <input type="text" 
+                class="form-control" 
+                name="title" id="title" 
+                aria-describedby="title" 
+                placeholder="Title">
+              </div> <!-- End  Title Input  -->
+
+               <!-- Start  Content Textarea will Recevie Content From Post  -->
+               <div class="col-sm-12">
+                   <textarea class="form-control mt-2" 
+                   name="cont" id="cont" rows="3">
+                  </textarea>
+              </div> <!-- End  Content Textarea -->
+              <!-- Start  category Input will Recevie category From Post  -->
+              <div class="col-sm-12">
+                <input type="text" 
+                class="form-control mt-2" 
+                name="category" id="category" 
+                aria-describedby="category" 
+                placeholder="category">
+              </div> <!-- End  category Input  -->
+            </div>
+          </form>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Understood</button>
+        <div class="modal-footer bg-dark">
+          <button type="button" class="btn btn-warning" data-dismiss="modal">Close</button>
+          <button id="save" type="button" class="btn btn-primary">Save</button>
         </div>
       </div>
     </div>
