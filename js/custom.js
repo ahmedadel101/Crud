@@ -744,11 +744,19 @@ Assigned to: Theme Forest
 		UserProfile: function(){
 			$(document).on("click", '.blog_user_div a' , function(){
 				$(this).closest('.blog_user_div').toggleClass("profile_open");
+				console.log($('.blog_user_div').length);
+				console.log($('.blogUserWrapper').length);
+
+				
 			});
 			
 			$('.blog_user_div').html('<div class="blogUserWrapper">'+$('.blog_user_div').html()+'</div>');
-			
+				console.log($('.blog_user_div').length);
+				console.log($('.blogUserWrapper').length);
+
 			$(document).on('click' , function(e){
+				console.log($('.blogUserWrapper').length);
+				console.log($(e.target).closest('.blogUserWrapper').length);
 				if(!$(e.target).closest('.blogUserWrapper').length){
 					$('.blog_user_div').removeClass("profile_open");
 				}
