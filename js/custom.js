@@ -6,7 +6,7 @@ Assigned to: Theme Forest
 -------------------------------------------------------------------*/
 (function($) {
     "use strict";
-	
+
 	var assect_cookie=0;
     var blog = {
         initialised: false,
@@ -22,6 +22,8 @@ Assigned to: Theme Forest
             ------------------------------------------------------------------------------------------------*/
             this.RTL();
 			this.Menu();
+			this.SignInAndSingUpToggle();
+			this.AuthSignUpAndSignIn();
 			this.HeaderSlider();
             this.BannerSlider();
             this.WorldNews_Slider();
@@ -81,6 +83,50 @@ Assigned to: Theme Forest
 			});
 		}
 		$(".blog_main_menu_innerdiv ul li ul.sub-menu").parent("li").addClass("blog_dropdown");
+		},
+		// singIn And SignUp Model
+		SignInAndSingUpToggle: function(){
+			$('#btnSignIn').click(function(){
+				$('#exampleModalLong').modal('hide'),
+				$('.blog_user_div ').css({"display":"block"}),
+				$('#signIn').css({'display':'none'})
+			
+			}),
+			$('#dontHaveAcc').click(function(){
+				$('#exampleModalLong').modal('hide');
+			}),
+			 $('#signUpComplete').click(function(e){
+			 	e.preventDefault();
+			 	// $('#exampleModal').modal('hide'),
+			 	// $('.blog_user_div ').css({"display":"block"}),
+			 	$('#signIn').css({'display':'none'})
+				
+			})
+		},
+		AuthSignUpAndSignIn: function(){
+			// Sign Up Auth Send Data 
+			let signUpForm = document.getElementById('signUpForm');
+			signUpForm.addEventListener('submit', function(e){
+				e.preventDefault();
+				const formData = new FormData(this);
+				
+				for( pair of formData){
+					console.log(pair)
+				}
+				fetch('http://localhost:3000/xlarge/user/signup',{
+					method: 'POST',
+					body: 'formData'
+				})
+				.then(response => response.json())
+				.then(data => {
+					console.log('Success:', data);
+				})
+				.catch((error) => {
+					console.log('Error:', error)
+				})
+			})
+			// End Sign Up Auth
+
 		},
         // Slider
         HeaderSlider: function() {
@@ -751,12 +797,10 @@ Assigned to: Theme Forest
 			});
 			
 			$('.blog_user_div').html('<div class="blogUserWrapper">'+$('.blog_user_div').html()+'</div>');
-				console.log($('.blog_user_div').length);
-				console.log($('.blogUserWrapper').length);
+			
 
 			$(document).on('click' , function(e){
-				console.log($('.blogUserWrapper').length);
-				console.log($(e.target).closest('.blogUserWrapper').length);
+				
 				if(!$(e.target).closest('.blogUserWrapper').length){
 					$('.blog_user_div').removeClass("profile_open");
 				}

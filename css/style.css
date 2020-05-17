@@ -504,6 +504,43 @@ button:focus {
     opacity: 1;
     visibility: visible;
 }
+.blog_user_div 
+{
+    display: none;
+}
+/* SignUp Style */
+.main-img
+{
+    position: relative;
+    cursor: pointer;
+}
+
+.loadImg
+{
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    background-color: rgba(0,0,0,0.5);
+
+    z-index: 20;
+}
+.loadImg h5 {
+    font-size: 1rem;
+    color: #fff;
+    transform: translateY(-10px);
+}
+.img-signup
+{
+    position: absolute;
+    top: 10%;
+    right:21%;
+    font-size: 50px;
+}
+/* End SignUp Style */
 .blog_top_search {
     width: 290px;
     padding: 20px 0;
