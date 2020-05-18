@@ -1,4 +1,3 @@
-
 /*--------------------- Copyright (c) 2018 -----------------------
 [Master Javascript]
 Project: Wlog - Blog and Magazine HTML template 
@@ -36,6 +35,7 @@ Assigned to: Theme Forest
             this.Search_Popup();
             this.Login_Popup();
             this.register_btn();
+            this. auth_signUp();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -795,6 +795,27 @@ Assigned to: Theme Forest
             });
 
         },
+        auth_signUp: function(){
+            let registerSubmit = document.getElementById('registerSubmit');
+
+            registerSubmit.addEventListener('submit' , function(e){
+                console.log('hello')
+
+                e.preventDefault();
+
+                const formData = new FormData(this);
+               
+                fetch('http://localhost:3000/xlarge/user/signup', {
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {console.log('success' , data)})
+                .catch((error) => {console.log('ERROR', error)})
+                
+
+            });
+        },
         RightToggle: function() {
             $(".blog_righttoggle a").on("click", function() {
                 $('body').addClass('right_toggle_open');
@@ -1016,7 +1037,7 @@ Assigned to: Theme Forest
                     var r = $("#msg").val();
                     $.ajax({
                         type: "POST",
-                        url: "ajaxmail.php",
+                        url: "http://localhost:3000/xlarge/user/signup",
                         data: {
                             username: e,
                             useremail: t,
