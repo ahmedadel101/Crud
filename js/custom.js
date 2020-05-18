@@ -1,3 +1,4 @@
+
 /*--------------------- Copyright (c) 2018 -----------------------
 [Master Javascript]
 Project: Wlog - Blog and Magazine HTML template 
