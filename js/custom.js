@@ -4,7 +4,31 @@ Project: Wlog - Blog and Magazine HTML template
 Version: 1.0.0
 Assigned to: Theme Forest
 -------------------------------------------------------------------*/
+let signUpForm = document.getElementById('signUpForm');
+
+signUpForm.addEventListener('submit', function(e) {
+
+    e.preventDefault();
+
+    // the form data
+    const formData = new FormData(this);
+
+    fetch('http://localhost:3000/xlarge/user/signup', {
+
+            method: 'POST',
+            body: formData,
+        })
+        .then(response => response.json())
+        .then(data => {
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
+        });
+
+});
 (function($) {
+
     "use strict";
 
     var assect_cookie = 0;
@@ -34,6 +58,8 @@ Assigned to: Theme Forest
             this.UserProfile();
             this.Search_Popup();
             this.Login_Popup();
+            this.Register_btn();
+            // this.AuthSignup();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -766,13 +792,56 @@ Assigned to: Theme Forest
         Login_Popup: function() {
             $("#login_btn").click(function(e) {
                 e.preventDefault();
-                $(this).parents("li").addClass('show_search');
+                $(this).parents().addClass('show_search'),
+                    $('.Login').css({ "display": "block", "animation": "slideInUp", "animation-duration": "0.5s" })
             });
             $(".search_close").click(function(e) {
                 e.preventDefault();
-                $('.search_close').closest('li').removeClass('show_search');
+                $('.search_close').closest('li').removeClass('show_search'),
+                    $('.Register').css({ "display": "none" })
+
             });
         },
+        Register_btn: function() {
+            $("#register_btn").click(function(e) {
+                e.preventDefault();
+                $('.Login').css({ "display": "none" }),
+                    $('.Register').css({ "display": "block", "animation": "slideInDown", "animation-duration": "0.5s" }),
+                    $
+
+            });
+
+            $("#signInNow").click(function(e) {
+                e.preventDefault();
+                $('.Register').css({ "display": "none" }),
+                    $('.Login').css({ "display": "block", "animation": "slideInUp", "animation-duration": "0.5s" })
+
+            });
+
+        },
+        AuthSignup: function() {
+            // let registerSignup = document.getElementById('registerForm');
+
+            // registerSignup.addEventListener('submit', function(e) {
+            //     e.preventDefault();
+
+            //     const formData = new FormData(this);
+
+            //     for (pair of FormData) {
+            //         console.log(pair)
+            //     }
+
+            //     fetch('http://localhost:3000/xlarge/user/signup', {
+            //             method: 'POST',
+            //             body: formData,
+
+            //         })
+            //         .then(response => response.json())
+            //         .then(data => console.log('Success', data))
+            //         .catch((error) => console.log('ERROR', error))
+            // })
+        },
+
         RightToggle: function() {
             $(".blog_righttoggle a").on("click", function() {
                 $('body').addClass('right_toggle_open');
@@ -1137,5 +1206,7 @@ Assigned to: Theme Forest
             $("#slider").html(sliderPosts);
         });
     };
+
+
 
 })(jQuery);
