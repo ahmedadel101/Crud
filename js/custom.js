@@ -34,8 +34,6 @@ Assigned to: Theme Forest
             this.UserProfile();
             this.Search_Popup();
             this.Login_Popup();
-            this.register_btn();
-            this. auth_signUp();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -768,52 +766,11 @@ Assigned to: Theme Forest
         Login_Popup: function() {
             $("#login_btn").click(function(e) {
                 e.preventDefault();
-                $(this).parents().addClass('show_search'),
-                $('.Login').css({"display":"block" , "animation": "slideInUp" , "animation-duration" : "0.5s" })
+                $(this).parents("li").addClass('show_search');
             });
             $(".search_close").click(function(e) {
                 e.preventDefault();
-                $('.search_close').closest('li').removeClass('show_search'),
-                $('.Register').css({"display":"none"})
-                
-            });
-        },
-        register_btn: function() {
-            $("#register_btn").click(function(e) {
-                e.preventDefault();
-                $('.Login').css({"display":"none" }),
-                $('.Register').css({"display":"block" , "animation": "slideInDown" , "animation-duration" : "0.5s"}),
-                $
-
-            });
-
-            $("#signInNow").click(function(e) {
-                e.preventDefault();
-                $('.Register').css({"display":"none"}),
-                $('.Login').css({"display":"block"  , "animation": "slideInUp" , "animation-duration" : "0.5s"})
-
-            });
-
-        },
-        auth_signUp: function(){
-            let registerSubmit = document.getElementById('registerSubmit');
-
-            registerSubmit.addEventListener('submit' , function(e){
-                console.log('hello')
-
-                e.preventDefault();
-
-                const formData = new FormData(this);
-               
-                fetch('http://localhost:3000/xlarge/user/signup', {
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {console.log('success' , data)})
-                .catch((error) => {console.log('ERROR', error)})
-                
-
+                $('.search_close').closest('li').removeClass('show_search');
             });
         },
         RightToggle: function() {
@@ -1037,7 +994,7 @@ Assigned to: Theme Forest
                     var r = $("#msg").val();
                     $.ajax({
                         type: "POST",
-                        url: "http://localhost:3000/xlarge/user/signup",
+                        url: "ajaxmail.php",
                         data: {
                             username: e,
                             useremail: t,
