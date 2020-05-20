@@ -4,29 +4,6 @@ Project: Wlog - Blog and Magazine HTML template
 Version: 1.0.0
 Assigned to: Theme Forest
 -------------------------------------------------------------------*/
-let signUpForm = document.getElementById('signUpForm');
-
-signUpForm.addEventListener('submit', function(e) {
-
-    e.preventDefault();
-
-    // the form data
-    const formData = new FormData(this);
-
-    fetch('http://localhost:3000/xlarge/user/signup', {
-
-            method: 'POST',
-            body: formData,
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log('Success:', data);
-        })
-        .catch((error) => {
-            console.error('Error:', error);
-        });
-
-});
 (function($) {
 
     "use strict";
@@ -59,7 +36,8 @@ signUpForm.addEventListener('submit', function(e) {
             this.Search_Popup();
             this.Login_Popup();
             this.Register_btn();
-            // this.AuthSignup();
+            this.AuthSignup();
+            this.AuthSignIn();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -820,26 +798,96 @@ signUpForm.addEventListener('submit', function(e) {
 
         },
         AuthSignup: function() {
-            // let registerSignup = document.getElementById('registerForm');
+                        
+            // the sign up form
+            let signUpForm = document.getElementById('signUpForm');
 
-            // registerSignup.addEventListener('submit', function(e) {
-            //     e.preventDefault();
+            signUpForm.addEventListener('submit', function (e) {
+                console.log(signUpForm);
+                console.log(this);
+                
+                
+                e.preventDefault();
 
-            //     const formData = new FormData(this);
+                // the form data
+                const formData = new FormData(this);
+                console.log(formData);
+                for(let pair of formData) {
+                    console.log(pair); 
+                }
+                
+                fetch('http://localhost:3000/xlarge/user/signup', {
+                    
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                
+            })
+        },
 
-            //     for (pair of FormData) {
-            //         console.log(pair)
-            //     }
+        AuthSignIn: function() {
+            
+            // the sign in form
+            let signInForm = document.getElementById('signInForm');
 
-            //     fetch('http://localhost:3000/xlarge/user/signup', {
-            //             method: 'POST',
-            //             body: formData,
+            signInForm.addEventListener('submit', function (e) {
+                e.preventDefault();
+                let signInData = {
+                    email: this.email.value,
+                    password: this.password.value
+                }
+                console.log(signInData);
 
-            //         })
-            //         .then(response => response.json())
-            //         .then(data => console.log('Success', data))
-            //         .catch((error) => console.log('ERROR', error))
-            // })
+            
+                fetch('http://localhost:3000/xlarge/login', {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(signInData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+
+                    // Store user token in session storage
+                    sessionStorage.setItem('userToken', JSON.stringify(data.token));
+
+                    // Get user id
+                    let userId = data.id;
+                    console.log(`user id is ${userId}`); // this is work
+
+                    // request to Get user data by id
+                fetch(`http://localhost:3000/xlarge/user/account/${userId}`,
+                {method: 'GET'})
+                .then(response => response.json())
+                .then(userData => {
+                    console.log('Success:', userData);
+                    
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+                    
+                }) //End of user data request
+
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
+
+                
+
+                
+            });
+
+
         },
 
         RightToggle: function() {
