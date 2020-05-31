@@ -3293,6 +3293,8 @@ s {
     color: #999;
 }
 
+
+
 .blog_right_toggle_sidebar {
     position: fixed;
     top: 0;
@@ -3329,11 +3331,28 @@ body.right_toggle_open .outer_close,
 }
 
 body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
-    -webkit-transform: translate(0px, 0px);
-    -moz-transform: translate(0px, 0px);
-    transform: translate(0px, 0px);
+    -webkit-transform: translate(0px, 0px) !important;
+    -moz-transform: translate(0px, 0px) !important;
+    transform: translate(0px, 0px) !important;
     overflow-y: scroll !important;
     -webkit-overflow-scrolling: touch;
+}
+
+/* left sidebar toggle override class for dashboard by Ekramy */
+.blog_togglediv_left{
+    right: auto !important;
+    -webkit-transform: translate(-360px, 0px) !important;
+    -ms-transform: translate(-360px, 0px) !important;
+    transform: translate(-360px, 0px) !important;
+    -o-transform: translate(-360px, 0px);
+}
+
+/* sidebar logo class for dashboard by Ekramy */
+.dashboard_sidebar_logo {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    padding-top: 0px;
 }
 
 .blog_right_toggle_sidebar .blog_togglediv .widget_recent_post ul li,
@@ -8696,3 +8715,85 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     width: 100%;
     text-align: center;
     padding-top: 70px;
+}
+
+
+
+/* classes for dashboard by Ekramy */
+
+.dashboard_pageContent {
+    padding: 10px 5px 1px;
+    background-color: #eaedf1;
+}
+
+.dashboard_pageContent-header {
+    background-color: #fff;
+    border-bottom: 1px solid #dbe1e8;
+    border-top: 1px solid #eaedf1;
+    margin: -10px -5px 10px;
+}
+
+.dashboard_pageContent-nav {
+    padding: 10px 7px 1px;
+    margin: 0;
+    list-style: none;
+}
+
+.dashboard_pageContent-nav li {
+    display: inline-block;
+    margin: 0 3px 9px;
+}
+
+.dashboard_pageContent-nav a {
+    display: block;
+    min-width: 140px;
+    border-radius: 3px;
+    font-weight: 700;
+    text-align: left;
+    padding: 8px 10px;
+    background-color: #f9fafc;
+}
+
+.dashboard_pageContent-nav li.active a {
+    background-color:#ff3359;
+    text-decoration: none;
+    color: #fff; 
+}
+
+.dashboard_pageContent-nav i {
+    display: inline-block;
+    font-size: 14px;
+    color: #dbe1e8;
+    margin-right: 5px;
+}
+
+.dashboard_pageContent-nav li.active a i {
+    color: #fff;
+    opacity: .6;
+}
+
+@media screen and (min-width: 768px) {
+    .dashboard_pageContent-header {
+        margin: -20px -20px 20px;
+    }
+
+}
+
+@media screen and (min-width: 992px) {
+
+    .dashboard_pageContent-nav a {
+        text-align: center;
+        min-width: 130px;
+        padding: 12px 15px;
+    }
+
+    .dashboard_pageContent-nav i {
+        display: block;
+        height: 55px;
+        margin-right: 0;
+        margin-bottom: 10px;
+        font-size: 42px;
+        padding: 10px;
+    }
+
+}
