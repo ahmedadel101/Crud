@@ -1,11 +1,14 @@
+
+
 /*--------------------- Copyright (c) 2018 -----------------------
 [Master Javascript]
 Project: Wlog - Blog and Magazine HTML template 
 Version: 1.0.0
 Assigned to: Theme Forest
 -------------------------------------------------------------------*/
-(function($) {
 
+
+(function($) {
     "use strict";
 
     var assect_cookie = 0;
@@ -36,8 +39,6 @@ Assigned to: Theme Forest
             this.Search_Popup();
             this.Login_Popup();
             this.Register_btn();
-            this.AuthSignup();
-            this.AuthSignIn();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -54,6 +55,7 @@ Assigned to: Theme Forest
             this.ContactFormSubmit();
             this.StickySidebar();
             this.wow();
+           
         },
         /*-------------- Blog Functions definition ---------------------------------------------------
         ---------------------------------------------------------------------------------------------------*/
@@ -89,7 +91,7 @@ Assigned to: Theme Forest
         },
         // Slider
         HeaderSlider: function() {
-            var swiper = new Swiper('.blog_tranding_slider .swiper-container', {
+            var swiper = new Swiper(' .swiper-container .blog_tranding_slider ' ,  {
                 direction: 'vertical',
                 loop: true,
                 speed: 1500,
@@ -758,6 +760,8 @@ Assigned to: Theme Forest
                     $('.blog_user_div').removeClass("profile_open");
                 }
             });
+           
+           
         },
         Search_Popup: function() {
             $(".blog_search > a").on("click", function() {
@@ -797,98 +801,7 @@ Assigned to: Theme Forest
             });
 
         },
-        AuthSignup: function() {
-                        
-            // the sign up form
-            let signUpForm = document.getElementById('signUpForm');
-
-            signUpForm.addEventListener('submit', function (e) {
-                console.log(signUpForm);
-                console.log(this);
-                
-                
-                e.preventDefault();
-
-                // the form data
-                const formData = new FormData(this);
-                console.log(formData);
-                for(let pair of formData) {
-                    console.log(pair); 
-                }
-                
-                fetch('http://localhost:3000/xlarge/user/signup', {
-                    
-                    method: 'POST',
-                    body: formData,
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-                
-            })
-        },
-
-        AuthSignIn: function() {
-            
-            // the sign in form
-            let signInForm = document.getElementById('signInForm');
-
-            signInForm.addEventListener('submit', function (e) {
-                e.preventDefault();
-                let signInData = {
-                    email: this.email.value,
-                    password: this.password.value
-                }
-                console.log(signInData);
-
-            
-                fetch('http://localhost:3000/xlarge/login', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    method: 'POST',
-                    body: JSON.stringify(signInData),
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log('Success:', data);
-
-                    // Store user token in session storage
-                    sessionStorage.setItem('userToken', JSON.stringify(data.token));
-
-                    // Get user id
-                    let userId = data.id;
-                    console.log(`user id is ${userId}`); // this is work
-
-                    // request to Get user data by id
-                fetch(`http://localhost:3000/xlarge/user/account/${userId}`,
-                {method: 'GET'})
-                .then(response => response.json())
-                .then(userData => {
-                    console.log('Success:', userData);
-                    
-                })
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-                    
-                }) //End of user data request
-
-                .catch((error) => {
-                    console.error('Error:', error);
-                });
-
-                
-
-                
-            });
-
-
-        },
+     
 
         RightToggle: function() {
             $(".blog_righttoggle a").on("click", function() {
@@ -1258,3 +1171,6 @@ Assigned to: Theme Forest
 
 
 })(jQuery);
+
+
+ 

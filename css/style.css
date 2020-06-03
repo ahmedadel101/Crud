@@ -724,11 +724,9 @@ button:focus {
 /* Start Register */
 .blog_register_form_div {
     display: inline-block;
-    width: 100%;
     background: #fff;
     position: relative;
     z-index: 1;
-    margin-top: 12px;
 }
 .Register
 {
