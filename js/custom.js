@@ -8,7 +8,6 @@ Assigned to: Theme Forest
 -------------------------------------------------------------------*/
 
 
-(function($) {
 
 
 
@@ -43,7 +42,7 @@ Assigned to: Theme Forest
             this.Search_Popup();
             this.Login_Popup();
             this.Register_btn();
-            this. ForgetPassword_btn();
+            this.ForgetPassword_btn();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -1217,6 +1216,3 @@ Assigned to: Theme Forest
 
 
 })(jQuery);
-
-
- 

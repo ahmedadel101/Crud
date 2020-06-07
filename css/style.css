@@ -702,9 +702,9 @@ button:focus {
 }
 
 
-.blog_login_form_div .login_form .blog_form_group .form-control  {
 
-.blog_form_group .alert {
+
+.blog_form_group .alert  {
     display: none;
 }
 
