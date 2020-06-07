@@ -624,13 +624,15 @@ button:focus {
 }
 
 .blog_top_search {
-    width: 290px;
+    /* width: 290px; */
     padding: 20px 0;
 }
 
 .blog_top_search .form-inline .blog_form_group {
     width: calc(100% - 28px);
 }
+
+
 
 .blog_top_search .form-inline .blog_form_group .form-control {
     width: 100%;
@@ -697,6 +699,10 @@ button:focus {
 
 .blog_login_form_div .login_form .blog_form_group {
     margin-bottom: 20px;
+}
+
+.blog_form_group .alert {
+    display: none;
 }
 
 .blog_login_form_div .login_form .blog_form_group .form-control {
@@ -3035,7 +3041,7 @@ body.homepage2 .blog_main_wrapper {
 
 .blog_main_header .blog_top_search ul {
     margin: 0;
-    /* padding: 0; */
+    padding: 0;
 }
 
 .blog_main_header .blog_top_search ul li {
@@ -5944,7 +5950,7 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         width: 130px;
     }
     .blog_top_search {
-        width: 250px;
+        /* width: 250px; */
     }
     .blog_main_menu .blog_main_menu_innerdiv ul li a {
         margin: 0px 14px;
@@ -6102,7 +6108,7 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         width: 110px;
     }
     .blog_top_search {
-        width: 200px;
+        /* width: 200px; */
     }
     .blog_main_menu .blog_main_menu_innerdiv ul li a {
         font-size: 14px;
@@ -6822,7 +6828,7 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     }
     .blog_top_search {
         display: inline-block;
-        width: 49%;
+        /* width: 49%; */
     }
     .blog_main_menu .blog_main_menu_innerdiv ul li a span {
         display: none;
@@ -8795,5 +8801,11 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         font-size: 42px;
         padding: 10px;
     }
+
+}
+
+.userCard img {
+    width:34px;
+    height: 34px;
 
 }
