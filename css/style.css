@@ -701,11 +701,15 @@ button:focus {
     margin-bottom: 20px;
 }
 
+
+.blog_login_form_div .login_form .blog_form_group .form-control  {
+
 .blog_form_group .alert {
     display: none;
 }
 
 .blog_login_form_div .login_form .blog_form_group .form-control {
+
     height: 50px;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
@@ -727,24 +731,116 @@ button:focus {
     margin-top: 10px;
 }
 /* End Login */
-/* Start Register */
-.blog_register_form_div {
+
+/* Start ForgetPassword */
+
+.blog_ForgetPassword_form_div {
     display: inline-block;
-    width: 100%;
     background: #fff;
     position: relative;
     z-index: 1;
-    margin-top: 12px;
+}
+.forgetPassword
+{
+    display: none;
+}
+.ResendCode 
+{
+    display: none;
+}
+
+.blog_ForgetPassword_form_div_inner  {
+    padding: 10px 30px 30px;
+}
+
+.blog_ForgetPassword_form_div h4  {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 19px;
+    text-transform: capitalize;
+    margin-top: -8px;
+    line-height: 38px;
+}
+
+.blog_ForgetPassword_form_div .ForgetPassword_form .blog_form_group {
+    margin-bottom: 20px;
+}
+
+.blog_ForgetPassword_form_div .ForgetPassword_form .blog_form_group .form-control  {
+    height: 50px;
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    color: #707070;
+}
+
+.blog_ForgetPassword_form_div .ForgetPassword_form .blog_form_group .form-control:focus {
+    border-color: #d4d4d4;
+    outline: none;
+    box-shadow: none;
+}
+
+.blog_ForgetPassword_form_div .ForgetPassword_form .blog_form_group textarea.form-control {
+    height: auto;
+    resize: none;
+}
+
+.blog_ForgetPassword_form_div .ForgetPassword_form .blog_btn {
+    margin-top: 10px;
+}
+
+.main-img
+{
+    position: relative;
+    cursor: pointer;
+}
+
+.loadImg
+{
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    background-color: hsla(350, 100%, 61%, 0.9);
+    color: rgb(250, 249, 248);
+
+    z-index: 20;
+}
+.loadImg h5 {
+    font-size: 1rem;
+    transform: translateY(-10px);
+    color: #fff;
+}
+.img-signup
+{
+    position: absolute;
+    top: 10%;
+    right:21%;
+    font-size: 50px;
+    z-index: 21;
+}
+
+/* End ForgetPassword */
+
+
+/* Start Register */
+.blog_register_form_div, .blog_ForgetPassword_form_div {
+    display: inline-block;
+    background: #fff;
+    position: relative;
+    z-index: 1;
 }
 .Register
 {
     display: none;
 }
-.blog_register_form_div_inner {
+.blog_register_form_div_inner , .blog_ForgetPassword_form_div_inner {
     padding: 10px 30px 30px;
 }
 
-.blog_register_form_div h4 {
+.blog_register_form_div h4  {
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 19px;
@@ -4545,6 +4641,11 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
 .blog_btn:hover {
     border-radius: 0 25px;
     color: #fff;
+}
+
+.nextToRest
+{
+    display: none;
 }
 
 
