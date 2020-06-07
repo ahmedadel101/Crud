@@ -39,6 +39,7 @@ Assigned to: Theme Forest
             this.Search_Popup();
             this.Login_Popup();
             this.Register_btn();
+            this. ForgetPassword_btn();
             this.RightToggle();
             this.NavToggleOpen();
             this.BannerLeftSlider();
@@ -780,7 +781,11 @@ Assigned to: Theme Forest
             $(".search_close").click(function(e) {
                 e.preventDefault();
                 $('.search_close').closest('li').removeClass('show_search'),
-                    $('.Register').css({ "display": "none" })
+                    $('.Register').css({ "display": "none" });
+                    $('.forgetPassword').css({ "display": "none" });
+                    $('.ResendCode').css({ "display": "none" })
+                   
+
 
             });
         },
@@ -800,6 +805,32 @@ Assigned to: Theme Forest
 
             });
 
+        },
+        ForgetPassword_btn: function(){
+            $('#forgetBtn').click(function(e){
+                e.preventDefault();
+                $('.Login').css({ "display": "none", "animation": "slideInUp", "animation-duration": "0.5s" }),
+                    $('.forgetPassword').css({ "display": "block", "animation": "slideInDown", "animation-duration": "0.5s" })
+                    
+            });
+
+            $('#backToSignIn-Btn').click(function(e){
+                e.preventDefault();
+                $('.forgetPassword').css({ "display": "none", "animation": "slideInUp", "animation-duration": "0.5s" }),
+                    $('.Login').css({ "display": "block", "animation": "slideInDown", "animation-duration": "0.5s" }),
+                    $('.ResendCode').css({ "display": "none" })
+                    
+            });
+
+            $('.fintMail').click(function(e){
+                e.preventDefault();
+                $('.ResendCode').css({ "display": "block", "animation": "fadeIn", "animation-duration": "0.5s" }),
+                $('.fintMail').css({ "display": "none"}),
+                $('.nextToRest').css({ "display": "block", "animation": "fadeIn", "animation-duration": "0.5s" })
+                
+            })
+
+           
         },
      
 
