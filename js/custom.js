@@ -1,5 +1,3 @@
-
-
 /*--------------------- Copyright (c) 2018 -----------------------
 [Master Javascript]
 Project: Wlog - Blog and Magazine HTML template 
@@ -9,9 +7,8 @@ Assigned to: Theme Forest
 
 
 
+(function ($) {
 
-
-(function($) {
     "use strict";
 
     var assect_cookie = 0;
@@ -19,7 +16,7 @@ Assigned to: Theme Forest
         initialised: false,
         version: 1.0,
         mobile: false,
-        init: function() {
+        init: function () {
             if (!this.initialised) {
                 this.initialised = true;
             } else {
@@ -59,11 +56,10 @@ Assigned to: Theme Forest
             this.ContactFormSubmit();
             this.StickySidebar();
             this.wow();
-           
         },
         /*-------------- Blog Functions definition ---------------------------------------------------
         ---------------------------------------------------------------------------------------------------*/
-        RTL: function() {
+        RTL: function () {
             var rtl_attr = $("html").attr('dir');
             if (rtl_attr) {
                 $('html').find('body').addClass("rtl");
@@ -71,11 +67,11 @@ Assigned to: Theme Forest
         },
         // Toggle Menu
         /*menu toggle*/
-        Menu: function() {
+        Menu: function () {
             var wh = window.innerWidth;
             // //Go to top
             if (wh < 991) {
-                $('.blog_menu_toggle').on('click', function(e) {
+                $('.blog_menu_toggle').on('click', function (e) {
 
                     if ($('.blog_main_menu_innerdiv li.active').length) {
                         $('.blog_main_menu_innerdiv li.active .sub-menu').hide();
@@ -86,7 +82,7 @@ Assigned to: Theme Forest
                     $(".blog_main_menu ").slideToggle("slow");
                 });
 
-                $(document).on('click', ".blog_main_menu_innerdiv ul li.blog_dropdown", function(e) {
+                $(document).on('click', ".blog_main_menu_innerdiv ul li.blog_dropdown", function (e) {
                     $('.blog_main_menu_innerdiv ul li.dd_open').not($(this)).removeClass('dd_open').find("ul.sub-menu").slideUp();
                     $(this).addClass('dd_open').find('.sub-menu').slideToggle();
                 });
@@ -94,8 +90,8 @@ Assigned to: Theme Forest
             $(".blog_main_menu_innerdiv ul li ul.sub-menu").parent("li").addClass("blog_dropdown");
         },
         // Slider
-        HeaderSlider: function() {
-            var swiper = new Swiper(' .swiper-container .blog_tranding_slider ' ,  {
+        HeaderSlider: function () {
+            var swiper = new Swiper('.blog_tranding_slider .swiper-container', {
                 direction: 'vertical',
                 loop: true,
                 speed: 1500,
@@ -106,7 +102,7 @@ Assigned to: Theme Forest
                 }
             });
         },
-        BannerSlider: function() {
+        BannerSlider: function () {
             var galleryThumbs = new Swiper('.gallery-thumbs', {
                 spaceBetween: 20,
                 direction: 'vertical',
@@ -178,7 +174,7 @@ Assigned to: Theme Forest
                 },
             });
         },
-        WorldNews_Slider: function() {
+        WorldNews_Slider: function () {
 
             new Swiper('.blog_world_news_slider .swiper-container', {
                 loop: false,
@@ -200,7 +196,7 @@ Assigned to: Theme Forest
                 },
             });
             $('.worldnews_tab .tab-pane').css("display", "none");
-            $('#nav-tab a').on('click', function(e) {
+            $('#nav-tab a').on('click', function (e) {
                 var t = $(this).attr('href');
                 $('.worldnews_tab .tab-pane').hide();
                 $(t).show();
@@ -211,7 +207,7 @@ Assigned to: Theme Forest
 
             $('.worldnews_tab2 .tab-pane').css("display", "none");
 
-            $('#nav-tab a').on('click', function(e) {
+            $('#nav-tab a').on('click', function (e) {
                 $('.worldnews_tab2  .custom_tab_content .tab').css('display', 'none');
                 var t = $(this).attr('href');
                 $('.worldnews_tab2 .tab-pane').hide();
@@ -221,13 +217,13 @@ Assigned to: Theme Forest
             });
             $('.worldnews_tab2 .tab-pane.active.show').show();
 
-            $('.worldnews_tab2 .tabs.animated-fade .tab-links .link_data a').on('click', function(e) {
+            $('.worldnews_tab2 .tabs.animated-fade .tab-links .link_data a').on('click', function (e) {
                 $('.worldnews_tab2 .tab-content .tab-pane').css('display', 'none');
             });
         },
-        CustomTab: function() {
+        CustomTab: function () {
             $('.custom_tab_content .tab').hide();
-            $('.tabs.animated-fade .tab-links .link_data a').on('click', function(e) {
+            $('.tabs.animated-fade .tab-links .link_data a').on('click', function (e) {
                 var currentAttrValue = $(this).attr('href');
 
                 // Show/Hide Tabs
@@ -239,7 +235,7 @@ Assigned to: Theme Forest
                 e.preventDefault();
             });
         },
-        Sport_Slider: function() {
+        Sport_Slider: function () {
             new Swiper('.blog_sport_slider .swiper-container', {
                 slidesPerView: 2,
                 slidesPerColumn: 3,
@@ -264,7 +260,7 @@ Assigned to: Theme Forest
                 },
             });
             $('.blog_sports .tab-pane').css("display", "none");
-            $('#nav-tab1 a').on('click', function(e) {
+            $('#nav-tab1 a').on('click', function (e) {
                 $('.blog_sports .custom_tab_content .tab').css('display', 'none');
                 var t = $(this).attr('href');
                 $('.blog_sports .tab-pane').hide();
@@ -274,12 +270,12 @@ Assigned to: Theme Forest
             });
             $('.blog_sports .tab-pane.active.show').show();
 
-            $('.blog_sports .tabs.animated-fade .tab-links .link_data a').on('click', function(e) {
+            $('.blog_sports .tabs.animated-fade .tab-links .link_data a').on('click', function (e) {
                 $('.blog_sports .tab-content .tab-pane').css('display', 'none');
             });
 
         },
-        Food_Health: function() {
+        Food_Health: function () {
             var galleryThumbs = new Swiper('.thumbs1', {
                 spaceBetween: 20,
                 direction: 'vertical',
@@ -650,7 +646,7 @@ Assigned to: Theme Forest
                 },
             });
             $('.blog_food_health .tab-pane').css("display", "none");
-            $('#nav-tab2 a').on('click', function(e) {
+            $('#nav-tab2 a').on('click', function (e) {
                 $('.blog_food_health .custom_tab_content .tab').css('display', 'none');
                 var t = $(this).attr('href');
                 $('.blog_food_health .tab-pane').hide();
@@ -660,11 +656,11 @@ Assigned to: Theme Forest
             });
             $('.blog_food_health .tab-pane.active.show').show();
 
-            $('.blog_food_health .tabs.animated-fade .tab-links .link_data a').on('click', function(e) {
+            $('.blog_food_health .tabs.animated-fade .tab-links .link_data a').on('click', function (e) {
                 $('.blog_food_health .tab-content .tab-pane').css('display', 'none');
             });
         },
-        Travel_Slider: function() {
+        Travel_Slider: function () {
             new Swiper('.blog_travel_slider .swiper-container', {
                 loop: false,
                 loopedSlides: 1,
@@ -683,7 +679,7 @@ Assigned to: Theme Forest
             });
 
             $('.blog_travel .tab-pane').css("display", "none");
-            $('#nav-tab3 a').on('click', function(e) {
+            $('#nav-tab3 a').on('click', function (e) {
                 $('.blog_travel .custom_tab_content .tab').css('display', 'none');
                 var t = $(this).attr('href');
                 $('.blog_travel .tab-pane').hide();
@@ -693,11 +689,11 @@ Assigned to: Theme Forest
             });
             $('.blog_travel .tab-pane.active.show').show();
 
-            $('.blog_travel .tabs.animated-fade .tab-links .link_data a').on('click', function(e) {
+            $('.blog_travel .tabs.animated-fade .tab-links .link_data a').on('click', function (e) {
                 $('.blog_travel .tab-content .tab-pane').css('display', 'none');
             });
         },
-        TechnologySlider: function() {
+        TechnologySlider: function () {
             new Swiper('.blog_technology_slider .swiper-container', {
                 loop: false,
                 loopedSlides: 1,
@@ -717,7 +713,7 @@ Assigned to: Theme Forest
             });
 
             $('.blog_technology .tab-pane').css("display", "none");
-            $('#nav-tab4 a').on('click', function(e) {
+            $('#nav-tab4 a').on('click', function (e) {
                 $('.blog_technology .custom_tab_content .tab').css('display', 'none');
                 var t = $(this).attr('href');
                 $('.blog_technology .tab-pane').hide();
@@ -727,22 +723,22 @@ Assigned to: Theme Forest
             });
             $('.blog_technology .tab-pane.active.show').show();
 
-            $('.blog_technology .tabs.animated-fade .tab-links .link_data a').on('click', function(e) {
+            $('.blog_technology .tabs.animated-fade .tab-links .link_data a').on('click', function (e) {
                 $('.blog_technology .tab-content .tab-pane').css('display', 'none');
             });
         },
-        MoreOption_Sidebar: function() {
-            $(".blog_news_action").on('click', function(e) {
+        MoreOption_Sidebar: function () {
+            $(".blog_news_action").on('click', function (e) {
                 $('ul.more_option').not($(this).closest('.blog_news').find('ul.more_option')).removeClass('open_option');
                 $(this).closest('.blog_news').find('ul.more_option').toggleClass('open_option');
             });
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.blog_news_action').length) {
                     $('ul.more_option').removeClass("open_option");
                 }
             });
         },
-        Magnific_Popup: function() {
+        Magnific_Popup: function () {
             $('.widget_instagram_news ul li').magnificPopup({
                 delegate: 'a.blog_popup',
                 type: 'image',
@@ -752,64 +748,51 @@ Assigned to: Theme Forest
                 },
             });
         },
-        UserProfile: function() {
-            $(document).on("click", '.blog_user_div a', function() {
-                if(!$(this).hasClass('profileLink')) {
+        UserProfile: function () {
+            $(document).on("click", '.blog_user_div a', function () {
+                if (!$(this).hasClass('profileLink')) {
                     $(this).closest('.blog_user_div').toggleClass("profile_open");
                 }
-                
+
             });
 
             // $('.blog_user_div').html('<div class="blogUserWrapper">' + $('.blog_user_div').html() + '</div>');
 
-
-            $(document).on('click', function(e) {
-                if (!$(e.target).closest('.blogUserWrapper').length) {
-                    $('.blog_user_div').removeClass("profile_open");
-                }
-            });
-           
             // $(document).on('click', function(e) {
             //     $(e.target).closest('.blog_user_div').toggleClass("profile_open");
-               
+
             // });
         },
-        Search_Popup: function() {
+        Search_Popup: function () {
 
-            $(".blog_search > a").on("click", function() {
+            $(".blog_search > a").on("click", function () {
                 $(this).parent().addClass('show_search');
             });
-            $(".search_close").on("click", function() {
+            $(".search_close").on("click", function () {
                 $('.search_close').closest('.blog_search ').removeClass('show_search');
+                $('.forgetPassword').css({ "display": "none", "animation": "slideInUp", "animation-duration": "0.5s" })
             });
         },
-        Login_Popup: function() {
-            $("#login_btn").click(function(e) {
+        Login_Popup: function () {
+            $("#login_btn").click(function (e) {
                 e.preventDefault();
                 $(this).parents().addClass('show_search'),
                     $('.Login').css({ "display": "block", "animation": "slideInUp", "animation-duration": "0.5s" })
             });
-            $(".search_close").click(function(e) {
+            $(".search_close").click(function (e) {
                 e.preventDefault();
                 $('.search_close').closest('li').removeClass('show_search'),
-                    $('.Register').css({ "display": "none" });
-                    $('.forgetPassword').css({ "display": "none" });
-                    $('.ResendCode').css({ "display": "none" })
-                   
-
-
+                    $('.Register').css({ "display": "none" })
             });
         },
-        Register_btn: function() {
-            $("#register_btn").click(function(e) {
-                e.preventDefault();
-                $('.Login').css({ "display": "none" }),
-                    $('.Register').css({ "display": "block", "animation": "slideInDown", "animation-duration": "0.5s" }),
-                    $
+        Register_btn: function () {
+           $('#register_btn').click(function(e){
+            e.preventDefault();
+            $('.Login').css({ "display": "none", "animation": "slideInUp", "animation-duration": "0.5s" }),
+            $('.Register').css({ "display": "block", "animation": "slideInUp", "animation-duration": "0.5s" })
+           })
 
-            });
-
-            $("#signInNow").click(function(e) {
+            $("#signInNow").click(function (e) {
                 e.preventDefault();
                 $('.Register').css({ "display": "none" }),
                     $('.Login').css({ "display": "block", "animation": "slideInUp", "animation-duration": "0.5s" })
@@ -817,57 +800,52 @@ Assigned to: Theme Forest
             });
 
         },
-
-        ForgetPassword_btn: function(){
-            $('#forgetBtn').click(function(e){
+        ForgetPassword_btn: function () {
+            $('#forgetBtn').click(function (e) {
                 e.preventDefault();
                 $('.Login').css({ "display": "none", "animation": "slideInUp", "animation-duration": "0.5s" }),
                     $('.forgetPassword').css({ "display": "block", "animation": "slideInDown", "animation-duration": "0.5s" })
-                    
+
             });
 
-            $('#backToSignIn-Btn').click(function(e){
+            $('#backToSignIn-Btn').click(function (e) {
                 e.preventDefault();
                 $('.forgetPassword').css({ "display": "none", "animation": "slideInUp", "animation-duration": "0.5s" }),
                     $('.Login').css({ "display": "block", "animation": "slideInDown", "animation-duration": "0.5s" }),
                     $('.ResendCode').css({ "display": "none" })
-                    
+
             });
 
-            $('.fintMail').click(function(e){
+            $('.fintMail').click(function (e) {
                 e.preventDefault();
                 $('.ResendCode').css({ "display": "block", "animation": "fadeIn", "animation-duration": "0.5s" }),
-                $('.fintMail').css({ "display": "none"}),
-                $('.nextToRest').css({ "display": "block", "animation": "fadeIn", "animation-duration": "0.5s" })
-                
+                    $('.fintMail').css({ "display": "none" }),
+                    $('.nextToRest').css({ "display": "block", "animation": "fadeIn", "animation-duration": "0.5s" })
+
             })
 
-           
+
         },
-     
-
-
-
-        RightToggle: function() {
-            $(".blog_righttoggle a").on("click", function() {
+        RightToggle: function () {
+            $(".blog_righttoggle a").on("click", function () {
                 $('body').addClass('right_toggle_open');
             });
-            $(".toggle_close").on("click", function() {
+            $(".toggle_close").on("click", function () {
                 $('body').removeClass('right_toggle_open');
             });
-            $(".outer_close").on("click", function() {
+            $(".outer_close").on("click", function () {
                 $('body').removeClass('right_toggle_open');
             });
         },
-        NavToggleOpen: function() {
-            $(".tab_toggle_menu a").on("click", function() {
+        NavToggleOpen: function () {
+            $(".tab_toggle_menu a").on("click", function () {
 
                 $('.nav-tabs').not($(this).closest('.blog_topheading_slider_nav').find('.nav-tabs')).removeClass('nav_toggle_open');
                 $(this).closest('.blog_topheading_slider_nav').find('.nav-tabs').toggleClass('nav_toggle_open');
             });
 
         },
-        BannerLeftSlider: function() {
+        BannerLeftSlider: function () {
             new Swiper('.blog_banner_slider_left_vertical .swiper-container', {
                 spaceBetween: 0,
                 direction: 'vertical',
@@ -883,7 +861,7 @@ Assigned to: Theme Forest
                 watchSlidesProgress: true,
             });
         },
-        BannerRightSlider: function() {
+        BannerRightSlider: function () {
             new Swiper('.blog_banner_slider_right_vertical .swiper-container', {
                 spaceBetween: 0,
                 direction: 'vertical',
@@ -900,7 +878,7 @@ Assigned to: Theme Forest
                 watchSlidesProgress: true,
             });
         },
-        BannerCenterSlider: function() {
+        BannerCenterSlider: function () {
             var swiper = new Swiper('.blog_banner_slider_center .swiper-container', {
                 spaceBetween: 0,
                 loop: false,
@@ -911,23 +889,23 @@ Assigned to: Theme Forest
                 },
             });
         },
-        SortToggle: function() {
-            $('.blog_sorting_togglediv span').on("click", function(e) {
+        SortToggle: function () {
+            $('.blog_sorting_togglediv span').on("click", function (e) {
                 $('.sort_toggleclose').closest('.blog_sorting_option').slideUp(200);
                 e.preventDefault();
                 $(this).parent().find('.blog_sorting_option').slideDown(200);
             });
-            $('.sort_toggleclose').on("click", function(e) {
+            $('.sort_toggleclose').on("click", function (e) {
                 e.preventDefault();
                 $(this).closest('.blog_sorting_option').slideUp(200);
             });
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.blog_sorting_togglediv').length) {
                     $('.sort_toggleclose').closest('.blog_sorting_option').slideUp(200);
                 }
             });
         },
-        Fullwidth_Multislide_Slider: function() {
+        Fullwidth_Multislide_Slider: function () {
             var swiper = new Swiper('.blog_fullwidth_multislide_slider .swiper-container', {
                 slidesPerView: 6,
                 spaceBetween: 20,
@@ -964,7 +942,7 @@ Assigned to: Theme Forest
                 },
             });
         },
-        InstargamSlider: function() {
+        InstargamSlider: function () {
             var swiper = new Swiper('.blog_instagram_slider .swiper-container', {
                 slidesPerView: 6,
                 spaceBetween: 20,
@@ -1001,44 +979,44 @@ Assigned to: Theme Forest
                 },
             });
         },
-        CookiesPopup: function() {
-            $('.blog_icon').on("click", function(e) {
+        CookiesPopup: function () {
+            $('.blog_icon').on("click", function (e) {
                 e.preventDefault();
                 $(this).parent().toggleClass('open animation_effect');
                 //var _this = $(this);
                 //setTimeout(function(){ _this.removeClass('animation_effect'); }, 900);
             });
-            $('.cookie_btn').on("click", function(e) {
+            $('.cookie_btn').on("click", function (e) {
                 e.preventDefault();
                 $('.blog_cookies_div').hide();
                 assect_cookie = 1;
             });
         },
-        SinglepageToggle: function() {
-            $('.blog_toggleonclick').on('click', function(e) {
+        SinglepageToggle: function () {
+            $('.blog_toggleonclick').on('click', function (e) {
                 e.preventDefault();
                 $('.blog_toggleonclick').not($(this).closest('.blog_comment_meta').find('.blog_toggleonclick')).removeClass('menu_open');
                 $(this).closest('.blog_comment_meta').find('.blog_toggleonclick').toggleClass('menu_open');
             });
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.blog_toggleonclick').length) {
                     $('.blog_toggleonclick').removeClass("menu_open");
                 }
             });
         },
-        CommentAction: function() {
-            $(".blog_comment_action").on('click', function(e) {
+        CommentAction: function () {
+            $(".blog_comment_action").on('click', function (e) {
                 $('ul.comment_action').not($(this).closest('.blog_comment_meta').find('ul.comment_action')).removeClass('open');
                 $(this).closest('.blog_comment_meta').find('ul.comment_action').toggleClass('open');
             });
-            $(document).on('click', function(e) {
+            $(document).on('click', function (e) {
                 if (!$(e.target).closest('.blog_comment_action').length) {
                     $('.comment_action').removeClass("open");
                 }
             });
 
         },
-        TestimonialSlider: function() {
+        TestimonialSlider: function () {
             var galleryThumbs15 = new Swiper('.blog_testimonial_slider .testimonial-thumbs', {
                 spaceBetween: 0,
                 slidesPerView: 3,
@@ -1059,9 +1037,9 @@ Assigned to: Theme Forest
                 }
             });
         },
-        ContactFormSubmit: function() {
+        ContactFormSubmit: function () {
             if ($('#send_btn').length > 0) {
-                $("#send_btn").on("click", function() {
+                $("#send_btn").on("click", function () {
                     var e = $("#ur_name").val();
                     var t = $("#ur_mail").val();
                     var ph = $("#ur_phone").val();
@@ -1077,7 +1055,7 @@ Assigned to: Theme Forest
                             usersub: s,
                             mesg: r
                         },
-                        success: function(n) {
+                        success: function (n) {
                             var i = n.split("#");
                             if (i[0] == "1") {
                                 $("#ur_name").val("");
@@ -1099,27 +1077,27 @@ Assigned to: Theme Forest
                 });
             }
         },
-        StickySidebar: function() {
+        StickySidebar: function () {
             $('.theiaStickySidebar').theiaStickySidebar({
                 additionalMarginTop: 30,
                 additionalMarginBottom: 30,
             });
         },
-        wow: function() {
+        wow: function () {
             new WOW().init();
         }
     };
-    $(document).ready(function() {
+    $(document).ready(function () {
         blog.init();
 
     });
     // Preloader Js
-    jQuery(window).on('load', function() {
+    jQuery(window).on('load', function () {
         jQuery("#blog_preloader_box").fadeOut();
         jQuery("#blog_preloader_wrapper").delay(350).fadeOut("slow");
     });
     // Window Scroll
-    $(window).scroll(function() {
+    $(window).scroll(function () {
         var wh = window.innerWidth;
         // //Go to top
         if (assect_cookie == 0) {
@@ -1129,7 +1107,7 @@ Assigned to: Theme Forest
                 $(".blog_cookies_div").hide();
             }
         }
-        $.get("http://localhost:3000/xlarge/post/list", function(data) {
+        $.get("http://localhost:3000/xlarge/post/list", function (data) {
             // console.log(data);
 
             let posts = "";
@@ -1152,10 +1130,10 @@ Assigned to: Theme Forest
     });
 
     // Get Posts
-    window.onload = function() {
+    window.onload = function () {
 
         // http request by JQ
-        $.get("http://localhost:3000/xlarge/post/list", function(data) {
+        $.get("http://localhost:3000/xlarge/post/list", function (data) {
             // console.log(data);
 
             let sliderPosts = "";
