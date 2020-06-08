@@ -672,36 +672,46 @@ Purchase:
         </div>
 <!-- dashboard page content -->
             <div class="dashboard_pageContent" style="min-height: 1025px;">
-                <div class="dashboard_pageContent-header">
-                    <ul class="dashboard_pageContent-nav text-center">
-                    <li class="active">
+                <div class="dashboard_pageContent-header" >
+                    <ul class="dashboard_pageContent-nav text-center napills" id="pills-tab" role="tablist">
+                    <li class="nav-link active" id="pills-post-tab" data-toggle="pill" href="#pills-posts" role="tab" aria-controls="pills-post" aria-selected="true">
                     <a href="javascript:void(0)"><i class="fas fa-book-open"></i>Posts</a>
                     </li>
-                    <li>
+                    <li class="nav-link" id="pills-admins-tab" data-toggle="pill" href="#pills-admins" role="tab" aria-controls="pills-admins" aria-selected="true">
                         <a href="javascript:void(0)"><i class="fas fa-users-cog"></i>Admins</a>
-                        </li>
-                    <li>
-                    <a href="javascript:void(0)"><i class="fas fa-users"></i>Users</a>
+                    </li>
+                    <li class="nav-link" id="pills-users-tab" data-toggle="pill" href="#pills-users" role="tab" aria-controls="pills-users" aria-selected="true">
+                        <a href="javascript:void(0)"><i class="fas fa-users"></i>Users</a>
                     </li>
                    
-                    <li>
+                    <li class="nav-link" id="pills-categories-tab" data-toggle="pill" href="#pills-categories" role="tab" aria-controls="pills-categories" aria-selected="true">
                     <a href="javascript:void(0)"><i class="fas fa-book"></i>Categories</a>
                     </li>
-                    <li>
+                    <li class="nav-link" id="pills-massages-tab" data-toggle="pill" href="#pills-massages" role="tab" aria-controls="pills-massages" aria-selected="true">
                     <a href="javascript:void(0)"><i class="fas fa-paper-plane"></i> Massages</a>
                     </li>
-                    <li>
+                    <li class="nav-link" id="pills-news-tab" data-toggle="pill" href="#pills-news" role="tab" aria-controls="pills-news" aria-selected="true">
                     <a href="javascript:void(0)"><i class="far fa-newspaper"></i> News</a>
                     </li>
                     
-                    <li>
-                    <a href="javascript:void(0)"><i class="fa fa-cogs"></i>Settings</a>
+                    <li class="nav-link" id="pills-settings-tab" data-toggle="pill" href="#pills-settings" role="tab" aria-controls="pills-settings" aria-selected="true">
+                    <div><i class="fa fa-cogs"></i>Settings</div>
                     </li>
 
-                    <li>
+                    <li class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">
                         <a href="javascript:void(0)"><i class="fa fa-pen"></i>Profile</a>
                         </li>
                     </ul>
+                </div>
+                <div class="dashboard_pageContent-main tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-home-tab">posts</div>
+                    <div class="tab-pane fade" id="pills-admins" role="tabpanel" aria-labelledby="pills-profile-tab">admins</div>
+                    <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-messages-tab">users</div>
+                    <div class="tab-pane fade" id="pills-categories" role="tabpanel" aria-labelledby="pills-settings-tab">categories</div>
+                    <div class="tab-pane fade" id="pills-massages" role="tabpanel" aria-labelledby="pills-settings-tab">massages</div>
+                    <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-settings-tab">news</div>
+                    <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">settings</div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-settings-tab">profile</div>
                 </div>
             </div>
 
@@ -914,6 +924,7 @@ Purchase:
     <script src="js/plugins/swiper/swiper.min.js"></script>
     <script src="js/plugins/magnific/jquery.magnific-popup.min.js"></script>
     <script src="js/wow.min.js"></script>
+    <script src="js/auth.js"></script>
     <script src="js/dashboard.js"></script>
     <!--Main js file Style-->
 </body>

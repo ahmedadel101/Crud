@@ -3,11 +3,6 @@
 // form validation
 
 
-
-
-
-
-
 // Sign in function steps
     // 1- send request on click
         // Get values of form inputs
@@ -17,15 +12,6 @@
         // Handel success case and failed case
 // 2- deal with return data
 // 3- display data after req
-
-
-
-
-
-
-
-
-
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -45,14 +31,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate username inputs
         const validUserName = document.getElementsByName('name');
+        let userNameRegex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
 
         validUserName.forEach(item => {
-
 
             item.addEventListener('blur', () => {
 
                 // Regular Expression For Valid
-                let userNameRegex = /^[A-Za-z]{3,9}$/
+                console.log(userNameRegex.test(item.value));
                 
                 // For Store alert message
                 let errorMsg = '';
@@ -72,20 +58,19 @@ document.addEventListener('DOMContentLoaded', function() {
         
                 // Put error message text in alert div
                 item.nextElementSibling.innerText = errorMsg;
-                });
-              
-            });
+            }); 
+        });
 
         // Validate phoneNumber inputs
         const validPhoneNumber = document.getElementsByName('phone');
 
         validPhoneNumber.forEach(item => {
 
+            // Regular Expression For Valid
+            let phoneRegex = /^(\d{11}){1}?$/
+
             item.addEventListener('blur', () => {
 
-                // Regular Expression For Valid
-                let phoneRegex = /^(\d{10}){1}?$/
-                
                 // For Store alert message
                 let errorMsg = '';
                         
@@ -99,7 +84,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Check if input value match regex rules
                 else if (phoneRegex.test(item.value) == false) {
                     item.nextElementSibling.style.display = "block";
-                    errorMsg = 'This name is invalid';
+                    errorMsg = 'This number is invalid';
                 }
         
                 // Put error message text in alert div
@@ -145,7 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         validEmail.forEach(item => {
             
-        item.addEventListener('blur', () => {
+            item.addEventListener('blur', () => {
 
             // Regular Expression For Valid
             let emailRegex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -172,15 +157,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 
         });
         
-
         // Validate Password input
         const passValid = document.getElementsByName('password');
         
         passValid.forEach(item => {
+
             item.addEventListener('blur', () => {
                 
                 // Regular Expression For Valid
-                let passRegex = /(?=\S{10,})(?=\S*[A-Z])(?=\S*[a-z])(?=\S*[0-9])(?=\S*[!£$%^&\"])(?<!\S)\S{10,20}(?=\s|\Z)/
+                let passRegex = /^[A-Za-z0-9]\w{6,16}$/
                 
                 // For Store alert message
                 let errorMsg = '';
@@ -193,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
                 
                 // Check if input value length not < 6 or > 12 chars
-                else if (item.value.length < 6 || item.value.length > 12) {
+                else if (item.value.length < 6 || item.value.length > 16) {
                     item.nextElementSibling.style.display = "block";
                     errorMsg = 'password Should be Min. 6 chars & Max. 12 chars';
                 }
@@ -201,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Check if input value match regex rules
                 else if (passRegex.test(item.value) == false) {
                     item.nextElementSibling.style.display = "block";
-                    errorMsg = 'Password Should have  upper & lowercase Letters, numeric & special character';
+                    errorMsg = 'Password may have Letters, numeric & special character';
                 }
                 // Put error message text in alert div
                 item.nextElementSibling.innerText = errorMsg;
@@ -210,11 +195,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
 
+        // reset alert display
         const inputs = document.getElementsByTagName('input');
             
         for (let input of inputs) {
                 input.addEventListener('focus', () => {
-                    if(input.nextElementSibling.classList.contains('alert')) {
+                    
+                    if(input.nextElementSibling && input.nextElementSibling.classList.contains('alert')) {
                         input.nextElementSibling.style.display = "none";
                 }
             });
