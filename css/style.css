@@ -1527,6 +1527,7 @@ ul.blog_meta_tags li span.blog_bg_pink:after {
     flex: 130px;
     overflow: hidden;
     position: relative;
+    height: 100%; /* ekramy */
 }
 
 .blog_post_style2 .blog_post_style2_img img {
@@ -8863,6 +8864,14 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     color: #fff; 
 }
 
+.dashboard_pageContent-header .nav-pills .nav-link.active {
+    background: none;
+}
+
+.dashboard_pageContent-header .nav-link {
+    padding: 0;
+}
+
 .dashboard_pageContent-nav i {
     display: inline-block;
     font-size: 14px;
@@ -8873,6 +8882,19 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
 .dashboard_pageContent-nav li.active a i {
     color: #fff;
     opacity: .6;
+}
+
+.dashboard_pageContent-main .post-control{
+    background: #fff;
+    padding: 20px;
+    display: flex;
+    width: 100%;
+    padding-right: 15px;
+    margin: 0 auto 10px;
+    border-top: 1px solid #eaedf1;
+}
+.user-tr {
+    width: 100% ;
 }
 
 @media screen and (min-width: 768px) {

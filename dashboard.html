@@ -673,8 +673,8 @@ Purchase:
 <!-- dashboard page content -->
             <div class="dashboard_pageContent" style="min-height: 1025px;">
                 <div class="dashboard_pageContent-header" >
-                    <ul class="dashboard_pageContent-nav text-center napills" id="pills-tab" role="tablist">
-                    <li class="nav-link active" id="pills-post-tab" data-toggle="pill" href="#pills-posts" role="tab" aria-controls="pills-post" aria-selected="true">
+                    <ul class="dashboard_pageContent-nav text-center nav-pills" id="pills-tab" role="tablist">
+                    <li class="nav-link active" id="pills-posts-tab" data-toggle="pill" href="#pills-posts" role="tab" aria-controls="pills-post" aria-selected="true">
                     <a href="javascript:void(0)"><i class="fas fa-book-open"></i>Posts</a>
                     </li>
                     <li class="nav-link" id="pills-admins-tab" data-toggle="pill" href="#pills-admins" role="tab" aria-controls="pills-admins" aria-selected="true">
@@ -695,7 +695,7 @@ Purchase:
                     </li>
                     
                     <li class="nav-link" id="pills-settings-tab" data-toggle="pill" href="#pills-settings" role="tab" aria-controls="pills-settings" aria-selected="true">
-                    <div><i class="fa fa-cogs"></i>Settings</div>
+                      <a href="javascript:void(0)"><i class="fa fa-cogs"></i>Settings</a>
                     </li>
 
                     <li class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="true">
@@ -704,14 +704,69 @@ Purchase:
                     </ul>
                 </div>
                 <div class="dashboard_pageContent-main tab-content" id="pills-tabContent">
-                    <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-home-tab">posts</div>
-                    <div class="tab-pane fade" id="pills-admins" role="tabpanel" aria-labelledby="pills-profile-tab">admins</div>
-                    <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-messages-tab">users</div>
-                    <div class="tab-pane fade" id="pills-categories" role="tabpanel" aria-labelledby="pills-settings-tab">categories</div>
-                    <div class="tab-pane fade" id="pills-massages" role="tabpanel" aria-labelledby="pills-settings-tab">massages</div>
-                    <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-settings-tab">news</div>
+                    <div class="tab-pane fade show active" id="pills-posts" role="tabpanel" aria-labelledby="pills-posts-tab">
+
+                        <div class="blog_main_wrapper blog_toppadder60 blog_bottompadder60">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-lg-9 col-md-12 col-sm-12 col-12" id="postsList">
+                                        <!-- from Js -->
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    
+                    </div>
+                    <div class="tab-pane fade" id="pills-admins" role="tabpanel" aria-labelledby="pills-admins-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    
+                        <table class="table table-striped table-inverse table-responsive">
+                            <thead class="thead-inverse">
+                                <tr class="text-center">
+                                    <th >Name</th>
+                                    <th>Options</th>
+                                </tr>
+                                </thead>
+                                <tbody id="adminTable">
+                                    <!-- from Js -->
+                                </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                        
+                    </div>
+                    
+                    <div class="tab-pane fade" id="pills-users" role="tabpanel" aria-labelledby="pills-users-tab">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col">
+                                    
+                        <table class="table table-striped table-inverse table-responsive">
+                            <thead class="thead-inverse">
+                                <tr class="text-center">
+                                    <th >Name</th>
+                                    <th>Options</th>
+                                </tr>
+                                </thead>
+                                <tbody id="userTable">
+                                    <!-- from Js -->
+                                </tbody>
+                        </table>
+                    </div>
+                    </div>
+                </div>
+                        
+                        
+                    </div>
+                    <div class="tab-pane fade" id="pills-categories" role="tabpanel" aria-labelledby="pills-categories-tab">categories</div>
+                    <div class="tab-pane fade" id="pills-massages" role="tabpanel" aria-labelledby="pills-massages-tab">massages</div>
+                    <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">news</div>
                     <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">settings</div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-settings-tab">profile</div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">profile</div>
                 </div>
             </div>
 
@@ -919,13 +974,14 @@ Purchase:
     </div>
     <!--Main js file Style-->
     <script src="js/jquery.js"></script>
+    <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/theia-sticky-sidebar.js"></script>
-    <script src="js/plugins/swiper/swiper.min.js"></script>
-    <script src="js/plugins/magnific/jquery.magnific-popup.min.js"></script>
     <script src="js/wow.min.js"></script>
-    <script src="js/auth.js"></script>
-    <script src="js/dashboard.js"></script>
+    <!-- <script src="js/admin_user.js"></script> -->
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/dashboard.js"></script>
+    <script src="js/custom.js"></script>
+
     <!--Main js file Style-->
 </body>
 

@@ -1,17 +1,4 @@
-// sign in
-// sign up
-// form validation
-
-
-// Sign in function steps
-    // 1- send request on click
-        // Get values of form inputs
-        // Store it in an obj
-        // Make req
-        // Send the object with req
-        // Handel success case and failed case
-// 2- deal with return data
-// 3- display data after req
+import { getUserById } from './users.js'
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -241,7 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    function authSignIn() {
+    function authSignIn(callback) {
 
         let userData;
 
@@ -291,55 +278,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 console.log(`user id is ${userId}`); // this is work
                 console.log(`user token is ${userToken}`); // this is work
                 console.log(`user role is ${userRole}`); // this is work
+                getUserById(userId, userRole, userToken, callback)
 
-                // Check user role
-                if (userRole == 'user') {
-
-                    // request to Get user data by id
-                    fetch(`http://localhost:3000/xlarge/user/account/${userId}`, {
-                        headers: {
-                        'x_auth_token_user': userToken
-                        },
-                        method: 'GET'
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Success:', data);
-                        userData = data;
-                         // Store user token in session storage
-                        sessionStorage.setItem('userData', JSON.stringify(userData));
-                        displayUserData(userData);
-
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-
-                }
-                else if (userRole == 'admin') {
-
-                    // request to Get user data by id
-                    fetch(`http://localhost:3000/xlarge/user/account/${userId}`, {
-                        headers: {
-                        'x_auth_token_admin': userToken
-                        },
-                        method: 'GET'
-                    })
-                    .then(response => response.json())
-                    .then(data => {
-                        console.log('Success:', data);
-                        userData = data;
-                        displayUserData(userData);
-   
-                    })
-                    .catch((error) => {
-                        console.error('Error:', error);
-                    });
-
-                } 
-
-                
-                
             }) //End of user data request
 
             .catch((error) => {
@@ -368,7 +308,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // function resetPassword() {
 
         // }
-    
+
 })
 
 
