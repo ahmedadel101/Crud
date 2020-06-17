@@ -18,9 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate username inputs
         const validUserName = document.getElementsByName('name');
-        let userNameRegex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
-
         validUserName.forEach(item => {
+            let userNameRegex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
 
             item.addEventListener('blur', () => {
 
@@ -50,7 +49,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate phoneNumber inputs
         const validPhoneNumber = document.getElementsByName('phone');
-
         validPhoneNumber.forEach(item => {
 
             // Regular Expression For Valid
@@ -114,7 +112,6 @@ document.addEventListener('DOMContentLoaded', function() {
             
         // Validate email inputs
         const validEmail = document.getElementsByName('email');
-
         validEmail.forEach(item => {
             
             item.addEventListener('blur', () => {
@@ -146,7 +143,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Validate Password input
         const passValid = document.getElementsByName('password');
-        
         passValid.forEach(item => {
 
             item.addEventListener('blur', () => {

@@ -6,17 +6,30 @@ Assigned to: Theme Forest
 -------------------------------------------------------------------*/
 
 import { getAllPosts, deletePost } from './posts.js'
-import { getAllUsers, deleteUser } from './users.js'
+import { getAllUsers, getAllAdmins, delUserOrAdmin, addAdmin } from './users.js'
 
+let addAdminForm = document.getElementById('addAdminForm');
+let userTable    = document.getElementById('userTable');
+let adminTable   = document.getElementById('adminTable');
+let postsList    = document.getElementById('postsList');
 
-
+// Get All Posts
 getAllPosts(displayAllPosts);
-deletePost(displayAllPosts)
-getAllUsers(displayAllUsers, 'admin');
-getAllUsers(displayAllUsers, 'user');
-deleteUser(displayAllUsers);
-// Display All Posts
+// Delete Post
+deletePost(displayAllPosts, postsList);
+// Get All Admins
+getAllAdmins(displayAllAdmins);
+// Add New Admin
+addAdmin(displayAllAdmins, addAdminForm);
+// Delete All Admins
+delUserOrAdmin(displayAllAdmins, adminTable, 'admin');
+// Delete All Users
+delUserOrAdmin(displayAllUsers, userTable, 'user');
+// Get All Users
+getAllUsers(displayAllUsers);
 
+
+// Display All Posts
 function displayAllPosts(posts) {
     let temp = '';
     let content
@@ -45,7 +58,18 @@ function displayAllPosts(posts) {
         </div>
     </div>
     
-    <div class="post-control"><div class="text-danger"><i class="fa fa-trash delBtn"  post_id="${post._id}"  post_index="${i}" aria-hidden="true"></i></div></div>
+    <div class="post-control">
+        <div class="text-primary">
+            <i class="fas fa-edit editBtn" post_id="${post._id}"
+            post_index="${i}" aria-hidden="true">
+            </i>
+        </div>
+        <div class="text-danger">
+            <i class="fa fa-trash delBtn" post_id="${post._id}" 
+            post_index="${i}" aria-hidden="true">
+            </i>
+        </div>
+    </div>
 
         `
         
@@ -56,7 +80,7 @@ function displayAllPosts(posts) {
 }
 
 // Display All Users
-function displayAllUsers(users, role) {
+function displayAllUsers(users) {
     let temp = '';
     for(const[i, user] of users.entries()) {
         
@@ -72,23 +96,34 @@ function displayAllUsers(users, role) {
         </tr>
         `   
     }
-    if (role == 'user') {
-    const userTable = document.getElementById('userTable').innerHTML = temp;
-    } 
-    if (role == 'admin') {
-        const adminTable = document.getElementById('adminTable').innerHTML = temp;
-
-    }
-        
-   
-    // const adminTable = document.getElementById('adminTable').innerHTML = temp;
+    
+    const userTable = document.getElementById('userTable').innerHTML = temp; 
 }
 
+// Display All Admins
+function displayAllAdmins(admins) {
+    let temp = '';
+    for(const[i, admin] of admins.entries()) {
+        
+        temp+=`<tr class="user-tr">
+            <td scope="row">${admin.name}</td>
+            <td>
+                <a href="./user_profile.html?${admin._id}" class="btn btn-success" id="userProfile">Profile</a>
+                <a href="./user_posts.html?${admin._id}" class="btn btn-primary" id="userPosts">Posts</a>
+                <div class="text-danger"><i class="fa fa-trash delBtn"  user_id="${admin._id}"  user_index="${i}" aria-hidden="true"></i></div>
+                <a href="mailto:${admin.email}" class="btn" id="userMassage"> <i class="fa fa-envelope" aria-hidden="true"></i></a>
 
+            </td>
+        </tr>
+        `   
+    }
+    
+        const adminTable = document.getElementById('adminTable').innerHTML = temp;
 
-
-
-
+    
+        
+   
+}
 
 
 

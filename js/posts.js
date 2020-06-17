@@ -27,18 +27,18 @@ export function getAllPosts(callback) {
 }
 
 
-// Delete Post func
-export function deletePost(callback) {
-    let postsList = document.getElementById('postsList');
-    postsList.addEventListener('click', function(e) {
-        console.log(e);
+// edit Post func
+export function editPost(callback, ele) {
+
+    ele = document.getElementById('postsList');
+    ele.addEventListener('click', function(e){
+    
         let postId;
         let postIndex
-        if (e.target.classList.contains('delBtn')) {
+        if (e.target.classList.contains('editBtn')) {
             postId = e.target.getAttribute('post_id');
             postIndex = e.target.getAttribute('post_index');
-            postData.splice(postIndex, 1);
-            fetch(`http://localhost:3000/xlarge/post/delete/${postId}`, {
+            fetch(`http://localhost:3000/xlarge/post/update/${postId}`, {
                 headers: {
                     'x_auth_token_user': userToken
     
@@ -49,7 +49,6 @@ export function deletePost(callback) {
             .then(massage => {
                 console.log('success', massage);
                 callback(postData)
-                console.log(postData);
                 
             })
             .catch(error => console.log('Error', error))
@@ -59,6 +58,41 @@ export function deletePost(callback) {
             console.log('Something went wrong');
             
         }
+    
+    })
+}
+export function deletePost(callback, ele) {
+
+    ele = document.getElementById('postsList');
+    ele.addEventListener('click', function(e){
+    
+        let postId;
+        let postIndex
+        if (e.target.classList.contains('delBtn')) {
+            postId = e.target.getAttribute('post_id');
+            postIndex = e.target.getAttribute('post_index');
+            fetch(`http://localhost:3000/xlarge/post/delete/${postId}`, {
+                headers: {
+                    'x_auth_token_user': userToken
+    
+                },
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then(massage => {
+                console.log('success', massage);
+                postData.splice(postIndex, 1);
+                callback(postData)
+                
+            })
+            .catch(error => console.log('Error', error))
+
+        }
+        else {
+            console.log('Something went wrong');
+            
+        }
+    
     })
 }
 
