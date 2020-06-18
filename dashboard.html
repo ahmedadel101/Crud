@@ -709,6 +709,11 @@ Purchase:
                         <div class="blog_main_wrapper blog_toppadder60 blog_bottompadder60">
                             <div class="container">
                                 <div class="row">
+                                    <h3 class="post-control">Not Approved Posts</h3>
+                                    <div class="col-lg-9 col-md-12 col-sm-12 col-12" id="notApprovedPosts">
+                                        <!-- from Js -->
+                                    </div>
+                                    <h3 class="post-control">Approved Posts</h3>
                                     <div class="col-lg-9 col-md-12 col-sm-12 col-12" id="postsList">
                                         <!-- from Js -->
                                     </div>
@@ -722,7 +727,9 @@ Purchase:
                         <div class="container">
                             <div class="row">
                                 <div class="col">
-                                    <div class="add-admin d-flex justify-content-end"><div class="btn btn-primary">Add Admin</div></div>
+                                    <div class="add-admin d-flex justify-content-end">
+                                        <button class="btn btn-primary">Add Admin</button>
+                                    </div>
                                     <form id="addAdminForm">
                                         <input class="form-control-file" type="file" name="img">
                                         <input class="form-control" type="text" name="name">
@@ -769,7 +776,19 @@ Purchase:
                         
                         
                     </div>
-                    <div class="tab-pane fade" id="pills-categories" role="tabpanel" aria-labelledby="pills-categories-tab">categories</div>
+                    <div class="tab-pane fade" id="pills-categories" role="tabpanel" aria-labelledby="pills-categories-tab">
+                        <button class="btn btn-primary">Add SubCategory</button>
+                        <div class="form-group">
+                          <label for=""></label>
+                          <select multiple class="custom-select" name="" id="">
+                                <option selected>Choose Category</option>
+                                <option value="web">Web</option>
+                                <option value="Applicationdevelopment">Application Development</option>
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                    
                     <div class="tab-pane fade" id="pills-massages" role="tabpanel" aria-labelledby="pills-massages-tab">massages</div>
                     <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">news</div>
                     <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">settings</div>

@@ -8893,6 +8893,11 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     margin: 0 auto 10px;
     border-top: 1px solid #eaedf1;
 }
+
+.dashboard_pageContent-main .post-control div{
+    margin: 0 10px;
+}
+
 .user-tr {
     width: 100% ;
 }
