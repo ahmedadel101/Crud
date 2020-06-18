@@ -1,168 +1,180 @@
-// Get user token from session storage
-let userToken = JSON.parse(sessionStorage.getItem('userToken'));
-console.log(userToken);
-
-
-// Post data 
-let postData;
-let notApproved;
-
-// Get All Posts func
-export function getAllPosts(callback) {
-       fetch('http://localhost:3000/xlarge/post/list',{
-           method: 'GET'
-       })
-       .then(res => res.json())
-       .then(data => {
-           console.log('success', data);
-           postData = data
-           callback(postData)
-           
-           if(data.length == 0) {
-               console.log('There\'s No Posts Yet');
-               
-           }
-           
-       })
-       .catch(error => console.log('Error', error))
-}
-
-// Get UnApproved Posts
-export function getNotApprovedPosts(callback) {
-    fetch('http://localhost:3000/xlarge/admin/list/notapproved',{
-        headers: {
-            'x_auth_token_admin': userToken
-
-        },
-        method: 'GET'
-    })
-    .then(res => res.json())
-    .then(data => {
-        console.log('success', data);
-        notApproved = data;
-        callback(notApproved)
-        
-        if(data.length == 0) {
-            console.log('There\'s No Posts Yet');
-            
-        }
-        
-    })
-    .catch(error => console.log('Error', error))
-}
-export function ApprovePost(callAfter, callLater, ele) {
-    ele.addEventListener('click', function(e){
-            console.log(ele);
-            
-        
-            let postId;
-            
-            let postIndex
-            if (e.target.classList.contains('approvedBtn')) {
-                postId = e.target.getAttribute('post_id');
-                postIndex = e.target.getAttribute('post_index');
-
-                fetch(`http://localhost:3000/xlarge/admin/approve/post/${postId}`,{
-                    headers: {
-                        'x_auth_token_admin': userToken
-
-                    },
-                    method: 'POST'
-                })
-                .then(res => res.json())
-                .then(data => {
-                    console.log('success', data);
-                    notApproved.splice(postIndex, 1);
-                    callAfter(postData)
-                    callLater(notApproved)
-                    
-                    if(data.length == 0) {
-                        console.log('There\'s No Posts Yet');
-                        
-                    }
-                    
-                })
-                .catch(error => console.log('Error', error))
-            }
-})
-}
+// http://localhost:3000/xlarge/post/create/web Api For Web Category 
+// http://localhost:3000/xlarge/post/create/Competitiveprogramming Api For Competitiveprogramming  Category 
+// http://localhost:3000/xlarge/post/create/Opensource Api For Opensource Category
 
 
 
-// edit Post func
-// export function editPost(callback, ele) {
+let selc = document.getElementById('selcCategory');
+let webPosts = document.getElementById('postsForWeb');
+let userToken = JSON.parse(sessionStorage.getItem("userToken"));
+let obj = { category: "" }
+let categoryData = [];
+let categoryId = [];
+let idCat = [];
+let supCat = document.getElementById("supCat");
+let selcValue
 
-//     ele = document.getElementById('postsList');
-//     ele.addEventListener('click', function(e){
-    
-//         let postId;
-//         let postIndex
-//         if (e.target.classList.contains('editBtn')) {
-//             postId = e.target.getAttribute('post_id');
-//             postIndex = e.target.getAttribute('post_index');
-//             fetch(`http://localhost:3000/xlarge/post/update/${postId}`, {
-//                 headers: {
-//                     'x_auth_token_user': userToken
-    
-//                 },
-//                 method: 'DELETE'
-//             })
-//             .then(res => res.json())
-//             .then(massage => {
-//                 console.log('success', massage);
-//                 callback(postData)
-                
-//             })
-//             .catch(error => console.log('Error', error))
+AddPosts();
 
-//         }
-//         else {
-//             console.log('Something went wrong');
-            
-//         }
-    
-//     })
-// }
-export function deletePost(callback, ele) {
+function AddPosts(callback) {
 
-    ele = document.getElementById('postsList');
-    ele.addEventListener('click', function(e){
-    
-        let postId;
-        let postIndex
-        if (e.target.classList.contains('delBtn')) {
-            postId = e.target.getAttribute('post_id');
-            postIndex = e.target.getAttribute('post_index');
-            fetch(`http://localhost:3000/xlarge/post/delete/${postId}`, {
+    selc.addEventListener('change', function() {
+
+        selcValue = selc.value;
+        fetch(`http://localhost:3000/xlarge/admin/categories/${selcValue}`, {
                 headers: {
                     'x_auth_token_user': userToken
-    
                 },
-                method: 'DELETE'
+                method: "GET",
+
             })
             .then(res => res.json())
-            .then(massage => {
-                console.log('success', massage);
-                postData.splice(postIndex, 1);
-                callback(postData)
-                
-            })
-            .catch(error => console.log('Error', error))
+            .then(data => {
+                data.map(item => {
+                    // console.log(item)
+                    let nameCat = item.name;
+                    // console.log(nameCat);
+                    // idCat.push(item._id);
+                    // console.log(idCat);
+                    let option = document.createElement("option");
+                    option.text = nameCat
+                    webPosts.add(option);
 
+                })
+
+                webPosts.addEventListener('change', function(e) {
+                    data.map(item2 => {
+                        if (item2.name == e.target.value) {
+                            console.log(item2._id)
+                            supCat.value = item2._id;
+
+                        }
+
+
+                    })
+                })
+
+
+                // console.log(data)
+                // data.map(item => {
+                //     categoryData.push(item.name),
+                //         categoryId.push(item._id)
+                // })
+                // callback(categoryData, categoryId);
+                // console.log(categoryData);
+
+            })
+
+
+
+        .catch(error => console.log(error))
+
+    })
+
+    let createdby = document.getElementById('createdby');
+    // get item from sessionStorage ;
+    let idUserPost = JSON.parse(sessionStorage.getItem("userData"));
+    createinp = idUserPost._id;
+    // then print in createdby input ;
+    createdby.value = createinp;
+    //Start Event Sumbit Form AddPost ;
+    let AddPostCategores = document.getElementById('addPost');
+    //Event For Submit Posts Form ;
+    AddPostCategores.addEventListener('submit', function(e) {
+
+        e.preventDefault();
+        // Get User Token From SessionStorage;
+        let userToken = JSON.parse(sessionStorage.getItem('userToken'))
+
+        // FromData = names Inputs;
+        const formData = new FormData(this);
+        for (pair of formData) {
+            console.log(pair)
         }
-        else {
-            console.log('Something went wrong');
-            
-        }
-    
+
+        fetch(`http://localhost:3000/xlarge/post/create/${selcValue}`, {
+                headers: {
+                    'x_auth_token_user': userToken
+                },
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(res => {
+                console.log('Success:', res);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+
+
     })
 }
 
-// export function getAllSubCategories(callback) {
+// function displayNameCategory(categories) {
+
+
+
+//     for (category of categories) {
+//         // let option = document.createElement("option");
+//         // option.text = category
+//         // webPosts.add(option)
+//         // for (let i = 0; i > catIdes.length; i++) {
+//         //     category[i] = catIdes[i];
+//         //     console.log(category);
+
+//         // }
+//         // for (cat of catIdes) {
+//         //     category = cat
+//         // }
+
+//     }
+// }
+
+// function catIdes(categoryId) {
+
+
 
 // }
 
 
 
-    
-    
+
+
+
+
+// for (const [i, category] of categories.entries()) {
+//     let option = document.createElement("option");
+//     option.text = category
+//     webPosts.add(option)
+//         // for (let i = 0; i > catIdes.length; i++) {
+//         //     category[i] = catIdes[i];
+//         //     console.log(category);
+
+//     // }
+//     // for (cat of catIdes) {
+//     //     category = cat
+//     // }
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// set securekey=mysecurekey ; For Open Node.js

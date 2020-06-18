@@ -1,13 +1,27 @@
-import { getUserById } from './users.js'
+// sign in
+// sign up
+// form validation
+
+
+// Sign in function steps
+// 1- send request on click
+// Get values of form inputs
+// Store it in an obj
+// Make req
+// Send the object with req
+// Handel success case and failed case
+// 2- deal with return data
+// 3- display data after req
 
 document.addEventListener('DOMContentLoaded', function() {
-    
+    let userInfo = document.getElementById('userInfo');
+    let modeluserInfo = document.getElementById('modeluserInfo');
     let userCard = document.getElementById('userCard');
     let login_btn = document.getElementById('login_btn');
     let loginPop = document.getElementById('loginPop');
     let profileMenu = document.getElementById('blog_profile_div');
 
-    authSignIn(displayUserData);
+    authSignIn(displayUserData, userPostInfo);
     authSignup();
     authSignOut();
     // resetPassword();
@@ -18,37 +32,39 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // Validate username inputs
         const validUserName = document.getElementsByName('name');
+        let userNameRegex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
+
         validUserName.forEach(item => {
-            let userNameRegex = /^[A-Za-z0-9 _]*[A-Za-z0-9][A-Za-z0-9 _]*$/
 
             item.addEventListener('blur', () => {
 
                 // Regular Expression For Valid
                 console.log(userNameRegex.test(item.value));
-                
+
                 // For Store alert message
                 let errorMsg = '';
-                        
+
                 // Check if input value not empty
                 if (!item.value) {
-    
+
                     item.nextElementSibling.style.display = "block";
-                    errorMsg ='this field is required';
-        
+                    errorMsg = 'this field is required';
+
                 }
                 // Check if input value match regex rules
                 else if (userNameRegex.test(item.value) == false) {
                     item.nextElementSibling.style.display = "block";
                     errorMsg = 'This name is invalid';
                 }
-        
+
                 // Put error message text in alert div
                 item.nextElementSibling.innerText = errorMsg;
-            }); 
+            });
         });
 
         // Validate phoneNumber inputs
         const validPhoneNumber = document.getElementsByName('phone');
+
         validPhoneNumber.forEach(item => {
 
             // Regular Expression For Valid
@@ -58,24 +74,24 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // For Store alert message
                 let errorMsg = '';
-                        
+
                 // Check if input value not empty
                 if (!item.value) {
-    
+
                     item.nextElementSibling.style.display = "block";
-                    errorMsg ='this field is required';
-        
+                    errorMsg = 'this field is required';
+
                 }
                 // Check if input value match regex rules
                 else if (phoneRegex.test(item.value) == false) {
                     item.nextElementSibling.style.display = "block";
                     errorMsg = 'This number is invalid';
                 }
-        
+
                 // Put error message text in alert div
                 item.nextElementSibling.innerText = errorMsg;
             });
-           
+
         });
         // Validate Age inputs
         const validAge = document.getElementsByName('Age');
@@ -86,86 +102,88 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Regular Expression For Valid
                 let ageRegex = /^(\d{2}){1}?$/
-                
+
                 // For Store alert message
                 let errorMsg = '';
-                        
+
                 // Check if input value not empty
                 if (!item.value) {
-    
+
                     item.nextElementSibling.style.display = "block";
-                    errorMsg ='this field is required';
-        
+                    errorMsg = 'this field is required';
+
                 }
                 // Check if input value match regex rules
                 else if (ageRegex.test(item.value) == false) {
                     item.nextElementSibling.style.display = "block";
                     errorMsg = 'This Age is invalid';
                 }
-        
+
                 // Put error message text in alert div
                 item.nextElementSibling.innerText = errorMsg;
             });
-          
+
         });
-            
-            
+
+
         // Validate email inputs
         const validEmail = document.getElementsByName('email');
+
         validEmail.forEach(item => {
-            
-            item.addEventListener('blur', () => {
-
-            // Regular Expression For Valid
-            let emailRegex =/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-            
-            // For Store alert message
-            let errorMsg = '';
-                    
-            // Check if input value not empty
-            if (!item.value) {
-
-                item.nextElementSibling.style.display = "block";
-                errorMsg ='this field is required';
-    
-            }
-            // Check if input value match regex rules
-            else if (emailRegex.test(item.value) == false) {
-                item.nextElementSibling.style.display = "block";
-                errorMsg = 'This email is invalid';
-            }
-    
-            // Put error message text in alert div
-            item.nextElementSibling.innerText = errorMsg;
-            });
-                
-        });
-        
-        // Validate Password input
-        const passValid = document.getElementsByName('password');
-        passValid.forEach(item => {
 
             item.addEventListener('blur', () => {
-                
+
                 // Regular Expression For Valid
-                let passRegex = /^[A-Za-z0-9]\w{6,16}$/
-                
+                let emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
                 // For Store alert message
                 let errorMsg = '';
-    
+
                 // Check if input value not empty
                 if (!item.value) {
 
                     item.nextElementSibling.style.display = "block";
-                    errorMsg ='Password is required';
+                    errorMsg = 'this field is required';
+
                 }
-                
+                // Check if input value match regex rules
+                else if (emailRegex.test(item.value) == false) {
+                    item.nextElementSibling.style.display = "block";
+                    errorMsg = 'This email is invalid';
+                }
+
+                // Put error message text in alert div
+                item.nextElementSibling.innerText = errorMsg;
+            });
+
+        });
+
+        // Validate Password input
+        const passValid = document.getElementsByName('password');
+
+        passValid.forEach(item => {
+
+            item.addEventListener('blur', () => {
+
+                // Regular Expression For Valid
+                let passRegex = /^[A-Za-z0-9]\w{6,16}$/
+
+                // For Store alert message
+                let errorMsg = '';
+
+                // Check if input value not empty
+                if (!item.value) {
+
+                    item.nextElementSibling.style.display = "block";
+                    errorMsg = 'Password is required';
+                }
+
                 // Check if input value length not < 6 or > 12 chars
                 else if (item.value.length < 6 || item.value.length > 16) {
                     item.nextElementSibling.style.display = "block";
                     errorMsg = 'password Should be Min. 6 chars & Max. 12 chars';
                 }
-    
+
                 // Check if input value match regex rules
                 else if (passRegex.test(item.value) == false) {
                     item.nextElementSibling.style.display = "block";
@@ -180,103 +198,155 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // reset alert display
         const inputs = document.getElementsByTagName('input');
-            
+
         for (let input of inputs) {
-                input.addEventListener('focus', () => {
-                    
-                    if(input.nextElementSibling && input.nextElementSibling.classList.contains('alert')) {
-                        input.nextElementSibling.style.display = "none";
+            input.addEventListener('focus', () => {
+
+                if (input.nextElementSibling && input.nextElementSibling.classList.contains('alert')) {
+                    input.nextElementSibling.style.display = "none";
                 }
             });
         }
- 
+
     }
 
     function authSignup() {
-                            
+
         // the sign up form
         let signUpForm = document.getElementById('signUpForm');
 
-        signUpForm.addEventListener('submit', function (e) {
-             
-           e.preventDefault();
+        signUpForm.addEventListener('submit', function(e) {
+
+            e.preventDefault();
 
             // the form data
             const formData = new FormData(this);
-           
-            
+
+
             fetch('http://localhost:3000/xlarge/user/signup', {
-                
-                method: 'POST',
-                body: formData,
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-            });
+
+                    method: 'POST',
+                    body: formData,
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
+                })
+                .catch((error) => {
+                    console.error('Error:', error);
+                });
 
             loginPop.style.display = 'none';
-            
+
         })
     }
 
 
-    function authSignIn(callback) {
+    function authSignIn() {
 
         let userData;
 
         if (sessionStorage.getItem("userData") == null) {
-        userData = [];
-        }
-
-        else {
+            userData = [];
+            document.getElementById('showAddPost').style.display = "none";
+        } else {
             userData = JSON.parse(sessionStorage.getItem("userData"));
             // console.log(userData);
             displayUserData(userData);
+            userPostInfo(userData);
+
+
         }
 
         // the sign in form
         let signInForm = document.getElementById('signInForm');
-        
 
-        signInForm.addEventListener('submit', function (e) {
+
+        signInForm.addEventListener('submit', function(e) {
 
             e.preventDefault();
+
 
             let signInData = {
                 email: this.email.value,
                 password: this.password.value
             }
 
-        
+
             fetch('http://localhost:3000/xlarge/login', {
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                method: 'POST',
-                body: JSON.stringify(signInData),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    method: 'POST',
+                    body: JSON.stringify(signInData),
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Success:', data);
 
-                // Store user token in session storage
-                sessionStorage.setItem('userToken', JSON.stringify(data.token));
 
-                // Get user id
-                let userId = data.id;
-                let userRole = data.role;
-                let userToken = data.token;
-                console.log(`user id is ${userId}`); // this is work
-                console.log(`user token is ${userToken}`); // this is work
-                console.log(`user role is ${userRole}`); // this is work
-                getUserById(userId, userRole, userToken, callback)
+                    // Store user token in session storage
+                    sessionStorage.setItem('userToken', JSON.stringify(data.token));
 
-            }) //End of user data request
+                    // Get user id
+                    let userId = data.id;
+                    let userRole = data.role;
+                    let userToken = data.token;
+                    console.log(`user id is ${userId}`); // this is work
+                    console.log(`user token is ${userToken}`); // this is work
+                    console.log(`user role is ${userRole}`); // this is work
+
+                    // Check user role
+                    if (userRole == 'user') {
+
+                        // request to Get user data by id
+                        fetch(`http://localhost:3000/xlarge/user/account/${userId}`, {
+                                headers: {
+                                    'x_auth_token_user': userToken
+                                },
+                                method: 'GET'
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Success:', data);
+                                userData = data;
+                                // Store user token in session storage
+                                sessionStorage.setItem('userData', JSON.stringify(userData));
+                                displayUserData(userData);
+                                userPostInfo(userData);
+                                document.getElementById('showAddPost').style.display = "block";
+
+
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
+
+                    } else if (userRole == 'admin') {
+
+                        // request to Get user data by id
+                        fetch(`http://localhost:3000/xlarge/user/account/${userId}`, {
+                                headers: {
+                                    'x_auth_token_admin': userToken
+                                },
+                                method: 'GET'
+                            })
+                            .then(response => response.json())
+                            .then(data => {
+                                console.log('Success:', data);
+                                userData = data;
+                                displayUserData(userData);
+
+                            })
+                            .catch((error) => {
+                                console.error('Error:', error);
+                            });
+
+                    }
+
+
+
+                }) //End of user data request
 
             .catch((error) => {
                 console.error('Error:', error);
@@ -290,20 +360,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function authSignOut() {
         let userLogout = document.getElementById('userLogout');
-        userLogout.addEventListener('click', function () {
+        userLogout.addEventListener('click', function() {
             sessionStorage.removeItem('userData');
             sessionStorage.removeItem('userToken');
             login_btn.style.display = 'block';
             userCard.style.display = 'none';
             profileMenu.style.display = 'none';
+
             location.reload();
 
         })
     }
 
-        // function resetPassword() {
+    // function resetPassword() {
 
-        // }
+    // }
 
 })
 
@@ -315,10 +386,23 @@ function displayUserData(data) {
         <img src="${data.img}" class="img-fluid" alt="">
          ${data.name}<i class="fa fa-angle-down" aria-hidden="true"></i>
          </a>`
-         
+
     login_btn.style.display = 'none';
     userCard.innerHTML = temp;
 
-    
-    
+
+
+}
+
+function userPostInfo(data) {
+    let userPost = `<a  href="#"> 
+        <div class="media">
+         <img src="${data.img}" class="align-self-start mr-2 img-fluid  rounded-circle" style="width: 50px;" alt="...">
+         <div class="media-body">
+           <h6 class="mt-4">${data.name}</h6>
+         </div>
+        </div>
+         </a>`
+    userInfo.innerHTML = userPost;
+    modeluserInfo.innerHTML = userPost;
 }

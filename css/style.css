@@ -1,4 +1,3 @@
-
 /*--------------------- Copyright (c) 2018 ----------------------- 
 [Master Stylesheet] 
 Template Name: Wlog - Blog and Magazine HTML template 
@@ -624,15 +623,13 @@ button:focus {
 }
 
 .blog_top_search {
-    /* width: 290px; */
-    padding: 20px 0;
+    width: 290px;
+    padding: 20px 10px;
 }
 
 .blog_top_search .form-inline .blog_form_group {
     width: calc(100% - 28px);
 }
-
-
 
 .blog_top_search .form-inline .blog_form_group .form-control {
     width: 100%;
@@ -668,6 +665,11 @@ button:focus {
 
 /* Login */
 
+.Login {
+    padding: 25px;
+    transform: translateY(35%);
+}
+
 .login-btn .blog_btn {
     padding: 9px 25px;
     margin-left: 10px;
@@ -682,7 +684,6 @@ button:focus {
     z-index: 1;
     margin-top: 12px;
 }
-
 
 .blog_login_form_div_inner {
     padding: 10px 30px 30px;
@@ -726,30 +727,126 @@ button:focus {
 .blog_login_form_div .login_form .blog_btn {
     margin-top: 10px;
 }
+
+.btns_flex button {
+    margin-right: 10px;
+}
+
+
 /* End Login */
 
-/* Start ForgetPassword */
 
-.blog_ForgetPassword_form_div {
-    display: inline-block;
+/* Start Register */
+
+.blog_register_form {
+    width: 100%;
     background: #fff;
     position: relative;
     z-index: 1;
 }
-.forgetPassword
-{
+
+.Register {
     display: none;
-}
-.ResendCode 
-{
-    display: none;
+    transform: translateY(13%);
+    width: 50%;
 }
 
-.blog_ForgetPassword_form_div_inner  {
+.register_form {
+    padding: 20px;
+}
+
+.blog_register_form_div h4 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 19px;
+    text-transform: capitalize;
+    margin-top: -8px;
+    line-height: 38px;
+}
+
+.blog_register_form_div .register_form .blog_form_group {
+    margin-bottom: 5px;
+}
+
+.blog_register_form .register_form .blog_form_group .form-control {
+    border: 1px solid #d4d4d4;
+    border-radius: 5px;
+    color: #707070;
+}
+
+.blog_register_form_div .register_form .blog_form_group .form-control:focus {
+    border-color: #d4d4d4;
+    outline: none;
+    box-shadow: none;
+}
+
+.blog_register_form_div .register_form .blog_form_group textarea.form-control {
+    height: auto;
+    resize: none;
+}
+
+.blog_register_form_div .register_form .blog_btn {
+    margin-top: 10px;
+}
+
+.main-img {
+    position: relative;
+    cursor: pointer;
+}
+
+.loadImg {
+    text-align: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    width: 90px;
+    height: 90px;
+    border-radius: 50px;
+    background-color: hsla(350, 100%, 61%, 0.9);
+    color: rgb(250, 249, 248);
+    z-index: 20;
+}
+
+.loadImg h5 {
+    font-size: 1rem;
+    transform: translateY(-10px);
+    color: #fff;
+}
+
+.img-signup {
+    position: absolute;
+    top: 10%;
+    right: 21%;
+    font-size: 50px;
+    z-index: 21;
+}
+
+
+/* End Register */
+
+
+/* Start ForgetPassword */
+
+.forgetPassword {
+    display: none;
+    padding: 25px;
+    transform: translateY(50%);
+}
+
+.blog_ForgetPassword_form_div {
+    display: inline-block;
+    width: 100%;
+    background: #fff;
+    position: relative;
+    z-index: 1;
+    margin-top: 12px;
+}
+
+.blog_ForgetPassword_form_div_inner {
     padding: 10px 30px 30px;
 }
 
-.blog_ForgetPassword_form_div h4  {
+.blog_ForgetPassword_form_div h4 {
     font-size: 25px;
     font-weight: 700;
     margin-bottom: 19px;
@@ -762,7 +859,11 @@ button:focus {
     margin-bottom: 20px;
 }
 
-.blog_ForgetPassword_form_div .ForgetPassword_form .blog_form_group .form-control  {
+.blog_form_group .alert {
+    display: none;
+}
+
+.blog_ForgetPassword_form_div .ForgetPassword_form .blog_form_group .form-control {
     height: 50px;
     border: 1px solid #d4d4d4;
     border-radius: 5px;
@@ -784,130 +885,94 @@ button:focus {
     margin-top: 10px;
 }
 
-.main-img
-{
-    position: relative;
-    cursor: pointer;
-}
-
-.loadImg
-{
-    text-align: center;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-    width: 90px;
-    height: 90px;
-    border-radius: 50px;
-    background-color: hsla(350, 100%, 61%, 0.9);
-    color: rgb(250, 249, 248);
-
-    z-index: 20;
-}
-.loadImg h5 {
-    font-size: 1rem;
-    transform: translateY(-10px);
-    color: #fff;
-}
-.img-signup
-{
-    position: absolute;
-    top: 10%;
-    right:21%;
-    font-size: 50px;
-    z-index: 21;
-}
 
 /* End ForgetPassword */
 
-/* Start Register */
-.blog_register_form_div {
-    display: inline-block;
-    width: 100%;
+
+/* Check Mail */
+
+.blog_CheckMail_div {
     background: #fff;
     position: relative;
     z-index: 1;
-    margin-top: 12px;
-}
-.Register
-{
-    display: none ;
-}
-.blog_register_form_div_inner {
-    padding: 10px 30px 30px;
 }
 
-.blog_register_form_div h4 {
-    font-size: 25px;
-    font-weight: 700;
-    margin-bottom: 19px;
-    text-transform: capitalize;
-    margin-top: -8px;
-    line-height: 38px;
+.checkMail {
+    display: none;
+    transform: translateY(20%);
 }
 
-.blog_register_form_div .register_form .blog_form_group {
-    margin-bottom: 20px;
-}
-
-.blog_register_form_div .register_form .blog_form_group .form-control {
-    height: 50px;
-    border: 1px solid #d4d4d4;
-    border-radius: 5px;
-    color: #707070;
-}
-
-.blog_register_form_div .register_form .blog_form_group .form-control:focus {
-    border-color: #d4d4d4;
-    outline: none;
-    box-shadow: none;
-}
-
-.blog_register_form_div .register_form .blog_form_group textarea.form-control {
-    height: auto;
-    resize: none;
-}
-
-.blog_register_form_div .register_form .blog_btn {
-    margin-top: 10px;
-}
-
-.main-img
-{
-    position: relative;
-    cursor: pointer;
-}
-
-.loadImg
-{
-    text-align: center;
+.blog_CheckMail_div .blog_checkMail_div_inner {
+    height: 400px;
     display: flex;
-    align-items: flex-end;
     justify-content: center;
-    width: 90px;
-    height: 90px;
-    border-radius: 50px;
-    background-color: hsla(350, 100%, 61%, 0.9);
-    color: rgb(250, 249, 248);
-
-    z-index: 20;
-}
-.loadImg h5 {
-    font-size: 1rem;
-    transform: translateY(-10px);
-    color: #fff;
-}
-.img-signup
-{
-    position: absolute;
-    top: 10%;
-    right:21%;
-    font-size: 50px;
-    z-index: 21;
+    align-items: center;
 }
 
-/* End Register */
-/* End Register And Login */
+
+/* End Check Mail */
+
+@media only screen and (max-width: 768px) {
+    .Register {
+        width: 100%;
+    }
+    .register_form {
+        padding: 10px;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    .Login {
+        overflow: auto;
+    }
+    .btns_signIn,
+    .btns_Register {
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+    }
+    .btns_flex {
+        width: 80%;
+        margin: auto;
+    }
+    .btns_flex button {
+        width: 100%;
+    }
+}
+
+
+/* End Auth */
+
+
+/* Start Create Posts */
+
+.template {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    transition: ease .5s;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.close:hover {
+    transform: rotate(360deg);
+    color: rgb(3, 130, 165);
+}
+
+
+/* #postsForWeb {
+    display: none;
+} */
+
+
+/* End Createpost */
+
 
 /*====Main Header Css End====*/
 
@@ -1527,7 +1592,6 @@ ul.blog_meta_tags li span.blog_bg_pink:after {
     flex: 130px;
     overflow: hidden;
     position: relative;
-    height: 100%; /* ekramy */
 }
 
 .blog_post_style2 .blog_post_style2_img img {
@@ -3393,8 +3457,6 @@ s {
     color: #999;
 }
 
-
-
 .blog_right_toggle_sidebar {
     position: fixed;
     top: 0;
@@ -3438,8 +3500,10 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     -webkit-overflow-scrolling: touch;
 }
 
+
 /* left sidebar toggle override class for dashboard by Ekramy */
-.blog_togglediv_left{
+
+.blog_togglediv_left {
     right: auto !important;
     -webkit-transform: translate(-360px, 0px) !important;
     -ms-transform: translate(-360px, 0px) !important;
@@ -3447,7 +3511,9 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     -o-transform: translate(-360px, 0px);
 }
 
+
 /* sidebar logo class for dashboard by Ekramy */
+
 .dashboard_sidebar_logo {
     position: absolute;
     top: 10px;
@@ -4639,10 +4705,6 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
 .blog_btn:hover {
     border-radius: 0 25px;
     color: #fff;
-}
-.nextToRest
-{
-    display: none;
 }
 
 
@@ -6167,7 +6229,7 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     }
 }
 
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (min-width: 992px) and (max-width: 1280px) {
     .blog_tranding_div {
         width: 150px;
     }
@@ -6199,14 +6261,12 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         padding: 0px 15px;
     }
     .blog_logo,
-    .blog_top_search {
-        padding: 14px 0;
-    }
+    .blog_top_search {}
     .blog_logo {
-        width: 110px;
+        width: 7%;
     }
     .blog_top_search {
-        /* width: 200px; */
+        width: 10%;
     }
     .blog_main_menu .blog_main_menu_innerdiv ul li a {
         font-size: 14px;
@@ -6866,8 +6926,9 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     .blog_logo .blog_menu_toggle {
         display: block;
         position: absolute;
-        right: 10px;
+        left: 30%;
         top: 50%;
+        margin-left: 50px;
         transform: translateY(-50%);
         -webkit-transform: translateY(-50%);
         -moz-transform: translateY(-50%);
@@ -6925,8 +6986,10 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         color: #ff3657;
     }
     .blog_top_search {
-        display: inline-block;
-        /* width: 49%; */
+        width: 100%;
+    }
+    .blog_top_search a {
+        margin-right: 50px;
     }
     .blog_main_menu .blog_main_menu_innerdiv ul li a span {
         display: none;
@@ -7256,11 +7319,9 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         height: 50px;
     }
     .blog_header_style2 .blog_main_header .blog_top_search {
-        width: 100px;
+        width: 50%;
         display: inline-block;
         padding: 8px 0;
-        padding-right: 15px;
-        float: right;
     }
     .blog_header_style2 .blog_main_header .blog_main_menu {
         float: left;
@@ -7573,6 +7634,9 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     }
     body.homepage2.single_with_sidebar .col-lg-3.col-md-12.col-sm-12.col-12.theiaStickySidebar {
         margin-top: 60px;
+    }
+    .blog_top_search {
+        width: 30%;
     }
     .blog_top_search ul {
         float: right;
@@ -8289,9 +8353,6 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     .blog_banner_slider.wrapper.banner_style2 .blog_banner_slider_center .blog_post_slider_wrapper .blog_post_slider_content h6 {
         margin-top: 0;
     }
-    .blog_top_search ul {
-        float: right;
-    }
 }
 
 @media (max-width: 545px) {
@@ -8356,6 +8417,10 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         line-height: 26px;
         margin-top: 0;
     }
+    .widget.widget_recent_news ul li .blog_news ul.more_option,
+    .blog_user_div .blog_profile_div ul {
+        padding: 10px;
+    }
     .blog_cookies_div .blog_cookies_icon {
         width: 60px;
         height: 60px;
@@ -8419,8 +8484,15 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     .blog_innerpages .blog_technology_slider .blog_post_style2 .blog_post_style2_img {
         display: inline-block;
     }
-    .blog_main_header .blog_top_search ul li a {
-        padding: 0px 10px;
+    .blog_main_header .blog_logo {
+        width: 30%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .blog_main_header .blog_top_search {
+        width: 49%;
+        position: relative;
+        left: 20%;
     }
     .blog_search_popup .form-inline,
     .blog_login_popup .form-inline {
@@ -8822,7 +8894,6 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
 }
 
 
-
 /* classes for dashboard by Ekramy */
 
 .dashboard_pageContent {
@@ -8859,17 +8930,9 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
 }
 
 .dashboard_pageContent-nav li.active a {
-    background-color:#ff3359;
+    background-color: #ff3359;
     text-decoration: none;
-    color: #fff; 
-}
-
-.dashboard_pageContent-header .nav-pills .nav-link.active {
-    background: none;
-}
-
-.dashboard_pageContent-header .nav-link {
-    padding: 0;
+    color: #fff;
 }
 
 .dashboard_pageContent-nav i {
@@ -8884,39 +8947,18 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     opacity: .6;
 }
 
-.dashboard_pageContent-main .post-control{
-    background: #fff;
-    padding: 20px;
-    display: flex;
-    width: 100%;
-    padding-right: 15px;
-    margin: 0 auto 10px;
-    border-top: 1px solid #eaedf1;
-}
-
-.dashboard_pageContent-main .post-control div{
-    margin: 0 10px;
-}
-
-.user-tr {
-    width: 100% ;
-}
-
 @media screen and (min-width: 768px) {
     .dashboard_pageContent-header {
         margin: -20px -20px 20px;
     }
-
 }
 
 @media screen and (min-width: 992px) {
-
     .dashboard_pageContent-nav a {
         text-align: center;
         min-width: 130px;
         padding: 12px 15px;
     }
-
     .dashboard_pageContent-nav i {
         display: block;
         height: 55px;
@@ -8925,11 +8967,9 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
         font-size: 42px;
         padding: 10px;
     }
-
 }
 
 .userCard img {
-    width:34px;
+    width: 34px;
     height: 34px;
-
 }
