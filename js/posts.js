@@ -1,11 +1,11 @@
 // Get user token from session storage
 let userToken = JSON.parse(sessionStorage.getItem('userToken'));
-console.log(userToken);
 
 
 // Post data 
 let postData;
 let notApproved;
+let cateData;
 
 // Get All Posts func
 export function getAllPosts(callback) {
@@ -56,7 +56,6 @@ export function ApprovePost(callAfter, callLater, ele) {
             
         
             let postId;
-            
             let postIndex
             if (e.target.classList.contains('approvedBtn')) {
                 postId = e.target.getAttribute('post_id');
@@ -90,39 +89,49 @@ export function ApprovePost(callAfter, callLater, ele) {
 
 
 // edit Post func
-// export function editPost(callback, ele) {
+export function editPost(ele) {
 
-//     ele = document.getElementById('postsList');
-//     ele.addEventListener('click', function(e){
+    ele = document.getElementById('postsList');
+    ele.addEventListener('click', function(e){
+        // let post;
+        // let postId;
+        // let postIndex
+        // if (e.target.classList.contains('editBtn')) {
+        //     console.log(e.target);
+        //     postId = e.target.getAttribute('post_id');
+        //     console.log(postId);
+        //     postIndex = e.target.getAttribute('post_index');
+        //     post = e.target.getAttribute('post_content');
+        //     console.log(post);
+
+            // let editPostForm = document.getElementById('editPostForm');
+
+            // const formData = new FormData(editPostForm);
+            // fetch(`http://localhost:3000/xlarge/post/update/${postId}`, {
+            //     headers: {
+            //         'x_auth_token_user': userToken
     
-//         let postId;
-//         let postIndex
-//         if (e.target.classList.contains('editBtn')) {
-//             postId = e.target.getAttribute('post_id');
-//             postIndex = e.target.getAttribute('post_index');
-//             fetch(`http://localhost:3000/xlarge/post/update/${postId}`, {
-//                 headers: {
-//                     'x_auth_token_user': userToken
-    
-//                 },
-//                 method: 'DELETE'
-//             })
-//             .then(res => res.json())
-//             .then(massage => {
-//                 console.log('success', massage);
-//                 callback(postData)
+            //     },
+            //     method: 'POST',
+            //     body: formData,
+
+            // })
+            // .then(res => res.json())
+            // .then(massage => {
+            //     console.log('success', massage);
+            //     callback(postData)
                 
-//             })
-//             .catch(error => console.log('Error', error))
+            // })
+            // .catch(error => console.log('Error', error))
 
-//         }
-//         else {
-//             console.log('Something went wrong');
+        // }
+        // else {
+        //     console.log('Something went wrong');
             
-//         }
+        // }
     
-//     })
-// }
+    })
+}
 export function deletePost(callback, ele) {
 
     ele = document.getElementById('postsList');
@@ -158,11 +167,59 @@ export function deletePost(callback, ele) {
     })
 }
 
-// export function getAllSubCategories(callback) {
+export function getSubCategories(callback, elm) {
+    elm.addEventListener('change', (e)=> {
+        let category = elm.value;
+        console.log(category);
 
-// }
+        fetch(`http://localhost:3000/xlarge/admin/categories/${category}`,{
+        method: 'GET',
+        headers: {
+            'x_auth_token_admin': userToken
 
+        }
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log('success', data);
+        cateData = data
+        callback(cateData)
+        
+        if(data.length == 0) {
+            console.log('There\'s No Sub categories Yet');
+            
+        }
+        
+    })
+    .catch(error => console.log('Error', error))
+    })
+    
+}
+
+export function addSubCategory(formElm) {
+    formElm.addEventListener('submit', (e)=> {
+        e.preventDefault();
+        let subCateObj = {
+            subCategory: formElm.name.value,
+            category: formElm.category.value
+        }
+        fetch(`http://localhost:3000/xlarge/admin/add/category/${subCateObj.category}`,{
+            method: 'POST',
+            headers: {
+                'x_auth_token_admin': userToken,
+                'Content-Type': 'application/json'
+                
+            },
+            body: JSON.stringify({name:subCateObj.subCategory})
+    })
+    .then(res => res.json())
+    .then(data => {
+        console.log('success', data);
+    })
+    .catch(error => console.log('Error', error))
+    })
+    
 
 
     
-    
+    }

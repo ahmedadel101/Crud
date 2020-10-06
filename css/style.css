@@ -8902,6 +8902,11 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     width: 100% ;
 }
 
+
+.editBtn, .delBtn {
+    cursor: pointer;
+}
+
 @media screen and (min-width: 768px) {
     .dashboard_pageContent-header {
         margin: -20px -20px 20px;
@@ -8932,4 +8937,27 @@ body.right_toggle_open .blog_right_toggle_sidebar .blog_togglediv {
     width:34px;
     height: 34px;
 
+}
+
+
+/* from ahmed  addpost*/
+
+
+.template {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close {
+    transition: ease .5s;
+    font-size: 2rem;
+    font-weight: 500;
+}
+
+.close:hover {
+    transform: rotate(360deg);
+    color: rgb(3, 130, 165);
 }

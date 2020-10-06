@@ -777,22 +777,39 @@ Purchase:
                         
                     </div>
                     <div class="tab-pane fade" id="pills-categories" role="tabpanel" aria-labelledby="pills-categories-tab">
-                        <button class="btn btn-primary">Add SubCategory</button>
+                        <button class="btn btn-primary" id="addSubBtn" data-toggle="modal" data-target="#addSubCatModal">Add SubCategory</button>
                         <div class="form-group">
                           <label for=""></label>
-                          <select multiple class="custom-select" name="" id="">
+                          <select  class="custom-select" name="" id="select-category">
                                 <option selected>Choose Category</option>
                                 <option value="web">Web</option>
-                                <option value="Applicationdevelopment">Application Development</option>
-                                <option value=""></option>
+                                <option value="applicationdevelopment">Application Development</option>
+                                <option value="miscellaneousfields">Miscellaneous Fields</option>
+                                <option value="competitiveprogramming">Competitive Programming</option>
+                                <option value="datascience">Data Science</option>
+                                <option value="machinelearning">Machine Learning</option>
+                                <option value="opensource">Open Source</option>
                             </select>
                         </div>
+                        <section id="categoriesList">
+
+
+                        </section>
+                        
                     </div>
                     
                     <div class="tab-pane fade" id="pills-massages" role="tabpanel" aria-labelledby="pills-massages-tab">massages</div>
                     <div class="tab-pane fade" id="pills-news" role="tabpanel" aria-labelledby="pills-news-tab">news</div>
                     <div class="tab-pane fade" id="pills-settings" role="tabpanel" aria-labelledby="pills-settings-tab">settings</div>
-                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">profile</div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                       <!--  start page content -->
+                       
+                            <div class="container" id="profileInfo">
+                                  
+                                <!-- From js -->
+                                  
+                            </div>
+                    
                 </div>
             </div>
 
@@ -809,6 +826,146 @@ Purchase:
 
                 </div>
             </div> -->
+
+<!-- edit post form modal -->
+            <div class="modal fade" id="editPostModal" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="template">
+        <div class="layout_model  w-100">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <h3 class="modal-title" id="exampleModalLabel">
+                            <div id="modeluserInfo" class=" mr-3 "></div>
+                        </h3>
+                        <button type="button" class="close mr-3" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-row" id="editPostForm">
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="title" id="title" class="form-control" 
+                                    placeholder="Title" aria-describedby="helpId">
+                                </div>
+                            </div>
+
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <textarea class="form-control" name="content" id="content" 
+                                    placeholder="Content" rows="3"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <select class="form-control" name="" id="selcCategory">
+                                <option selected>Category</option>
+                                <option> Web </option>
+                                <option>Competitiveprogramming</option>
+                                <option>Opensource</option>
+                            </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4 webPosts">
+                                <div class="form-group">
+                                    <select class="form-control" name="" id="postsForWeb">
+                                <option selected>Choose</option>
+
+                            </select>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" name="category" id="supCat" class="form-control" 
+                                    placeholder="createdby" aria-describedby="helpId">
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <input type="text" name="createdby" id="createdby" 
+                                    hidden class="form-control" ] placeholder="createdby" 
+                                    aria-describedby="helpId">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="imgPost"></label>
+                                <input type="file" class="form-control-file" name="img" 
+                                id="imgPost" placeholder="" aria-describedby="fileHelpId">
+                            </div>
+
+
+                            <button type="submit" class="blog_btn btn btn-primary p-2 ml-auto">done</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- end of edit post form modal -->
+<!-- add sub category form modal -->
+            <div class="modal fade" id="addSubCatModal" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="template">
+        <div class="layout_model  w-100">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header ">
+                        <h3 class="modal-title" id="exampleModalLabel">
+                            <div id="modeluserInfo" class=" mr-3 "></div>
+                        </h3>
+                        <button type="button" class="close mr-3" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                    </div>
+                    <div class="modal-body">
+                        <form class="form-row" id="addSubCateForm">
+
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <input type="text" name="name" id="subCateName" class="form-control" 
+                                    placeholder="Add Sub Category" aria-describedby="helpId">
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <select  class="custom-select" name="category">
+                                        <option selected>Choose Category</option>
+                                        <option value="web">Web</option>
+                                        <option value="applicationdevelopment">Application Development</option>
+                                        <option value="miscellaneousfields">Miscellaneous Fields</option>
+                                        <option value="competitiveprogramming">Competitive Programming</option>
+                                        <option value="datascience">Data Science</option>
+                                        <option value="machinelearning">Machine Learning</option>
+                                        <option value="opensource">Open Source</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+
+                            <button type="submit" class="blog_btn btn btn-primary p-2 ml-auto" id="a">done</button>
+
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- end of sub category form modal -->
         
         
         <div class="blog_footer blog_toppadder60 blog_bottompadder30">
@@ -1006,7 +1163,7 @@ Purchase:
     <!-- <script src="js/admin_user.js"></script> -->
     <script type="module" src="js/auth.js"></script>
     <script type="module" src="js/dashboard.js"></script>
-    <script src="js/custom.js"></script>
+    <!-- <script src="js/custom.js"></script> -->
 
     <!--Main js file Style-->
 </body>

@@ -83,7 +83,6 @@
                 sessionStorage.setItem('userData', JSON.stringify(userData));
                 
                 callback(userData); 
-                window.location.href = './dashboard.html';  
             })
             .catch((error) => {
                 console.error('Error:', error);

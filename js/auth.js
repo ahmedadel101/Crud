@@ -1,4 +1,5 @@
 import { getUserById } from './users.js'
+let userRole;
 
 document.addEventListener('DOMContentLoaded', function() {
     
@@ -269,12 +270,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
                 // Get user id
                 let userId = data.id;
-                let userRole = data.role;
+                userRole = data.role;
                 let userToken = data.token;
                 console.log(`user id is ${userId}`); // this is work
                 console.log(`user token is ${userToken}`); // this is work
                 console.log(`user role is ${userRole}`); // this is work
-                getUserById(userId, userRole, userToken, callback)
+                getUserById(userId, userRole, userToken, callback);
+              
 
             }) //End of user data request
 
@@ -318,6 +320,10 @@ function displayUserData(data) {
          
     login_btn.style.display = 'none';
     userCard.innerHTML = temp;
+    if (userRole == 'admin') {
+        window.location.href = './dashboard.html';  
+
+    }
 
     
     
